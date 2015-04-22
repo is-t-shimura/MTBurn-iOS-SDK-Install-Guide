@@ -80,7 +80,7 @@ if (NSFoundationVersionNumber_iOS_6_0 <= floor(NSFoundationVersionNumber)) {
 
 <a name="sample"></a>
 #サンプルプロジェクトはありますか？
-[DemoApp](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/DemoApp) を参考にしてください
+[DemoApp](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/tree/master/DemoApp) を参考にしてください
 
 <a name="not_found_ad"></a>
 #広告の表示に問題がある（表示されない、重複するなど）
