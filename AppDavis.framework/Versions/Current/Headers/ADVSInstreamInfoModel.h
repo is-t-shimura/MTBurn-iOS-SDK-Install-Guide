@@ -46,6 +46,18 @@
 @property (nonatomic, readonly) NSString *displayedAdvertiser;
 
 /**
+ advertisement icon image url to be loaded in the tableView.
+ you can use it directly instead of using loadIconImage
+ */
+@property (nonatomic, readonly) NSURL *iconImageURL;
+
+/**
+ advertisement main image url to be loaded in the tableView.
+ you can use it directly instead of using loadImage
+ */
+@property (nonatomic, readonly) NSURL *imageURL;
+
+/**
  starts loading advertisement icon image for assigning a UIImage to the iconImageView,
  if you want to do so.
  
