@@ -1128,11 +1128,12 @@ In-Feed広告のロードや各種通知をする際に、そのイベントを�
 | content | 説明・紹介文(全角40~70文字以内) | `テスト広告です。` |
 | position | 広告案件の 相対位置 | `3` |
 | displayedAdvertiser | 表記広告主名 | `飲料会社 A社` |
-| iconImage | アイコン型の正方形画像(114x114 pixel固定) | 下記メソッドを呼び出してください |
-| mainImage | バナー型の矩形画像など(広告枠IDごとにサイズ可変) | 下記メソッドを呼び出してください |
+| iconImageURL | アイコン型の正方形画像(114x114 pixel固定)リソース | NSURL オブジェクトです |
+| mainImageURL | バナー型の矩形画像(広告枠IDごとにサイズ可変)リソース | NSURL オブジェクトです |
 
-- `- (void)loadIconImage:(UIImageView*)iconImageView completion:(void (^)(NSError *error)) completion;` はiconImageの取得に利用ください。
-- `- (void)loadImage:(UIImageView*)imageView completion:(void (^)(NSError *error)) completion;` はmainImageの取得に利用ください。
+- アイコン型の正方形画像とバナー型の矩形画像は次のメソッドを使っても取得することができます。このメソッドは内部的に画像をキャッシュしてくれるため、利用を推奨します。
+ - `- (void)loadIconImage:(UIImageView*)iconImageView completion:(void (^)(NSError *error)) completion;` 
+ - `- (void)loadImage:(UIImageView*)imageView completion:(void (^)(NSError *error)) completion;` 
 - `説明・紹介文` は `content` プロパティです。NSObject の [description](https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/Classes/NSObject_Class/index.html#//apple_ref/occ/clm/NSObject/description) メソッドではありません。ご注意ください。
 
 <a name="infeed/custom/format"></a>
