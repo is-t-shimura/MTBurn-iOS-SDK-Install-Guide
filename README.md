@@ -1,3 +1,5 @@
+[![CocoaPods](https://img.shields.io/cocoapods/v/AppDavis-iOS-SDK.svg)]()
+
 ## AppDavis iOS SDK Install Guide
 
 [日本語](Install_SDK_Guide.md)
