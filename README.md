@@ -10,7 +10,7 @@
 
 ## AppDavis iOS SDK API Spec (appledoc)
 
-[日本語](http://mtburn.github.io/MTBurn-iOS-SDK-Install-Guide/appledoc/latest/)
+[日本語 / English](http://mtburn.github.io/MTBurn-iOS-SDK-Install-Guide/appledoc/latest/)
 
 ## AppDavis iOS SDK Q&A
 
