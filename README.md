@@ -1,4 +1,5 @@
 [![CocoaPods](https://img.shields.io/cocoapods/v/AppDavis-iOS-SDK.svg)]()
+[![GitHub release](http://img.shields.io/github/release/mtburn/MTBurn-iOS-SDK-Install-Guide.svg?style=flat-square)]()
 
 ## AppDavis iOS SDK Install Guide
 
