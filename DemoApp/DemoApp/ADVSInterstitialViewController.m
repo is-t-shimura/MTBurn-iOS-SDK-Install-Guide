@@ -38,6 +38,9 @@
     NSLog(@"interstitialAdLoaderDidFinishLoadingAdView");
     
     [[ADVSInterstitialAdLoader sharedInstance] displayAd];
+    
+    // Removed a comment out if you want to try setting red to background color.
+    // [[ADVSInterstitialAdLoader sharedInstance] displayAd:[UIColor redColor]];
 }
 
 - (void)interstitialAdLoaderDidSkipLoadingAd:(ADVSInterstitialAdLoader *)interstitialAdLoader
@@ -48,6 +51,11 @@
 - (void)interstitialAdLoaderDidClickIntersititialAdView:(ADVSInterstitialAdLoader *)interstitialAdLoader
 {
     NSLog(@"interstitialAdLoaderDidClickIntersititialAdView:");
+}
+
+- (void)interstitialAdLoaderDidCloseIntersititialAdView:(ADVSInterstitialAdLoader *)interstitialAdLoader
+{
+    NSLog(@"interstitialAdLoaderDidCloseIntersititialAdView:");
 }
 
 - (void)interstitialAdLoader:(ADVSInterstitialAdLoader *)interstitialAdLoader didFailToLoadAdWithError:(NSError *)error

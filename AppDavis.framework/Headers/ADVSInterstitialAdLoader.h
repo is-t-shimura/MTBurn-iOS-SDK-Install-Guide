@@ -34,10 +34,21 @@
 
 /**
  Display a institial type advertisement instantly.
+ The background color of interstitial ad is picked as default one.
  
  @see ADVSInterstitialAdLoaderDelegate.h
  */
 
 - (void)displayAd;
+
+/**
+ Display a institial type advertisement instantly with specific color.
+
+ @param backgroundColor  color to be applied background of interstitial ad
+ 
+ @see ADVSInterstitialAdLoaderDelegate.h
+ */
+
+- (void)displayAd:(UIColor*)backgroundColor;
 
 @end

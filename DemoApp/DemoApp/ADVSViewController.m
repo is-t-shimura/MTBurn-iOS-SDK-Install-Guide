@@ -12,11 +12,9 @@
 #import <AppDavis/ADVSIconAdLoader.h>
 #import <AppDavis/ADVSIconAdView.h>
 #import <AppDavis/ADVSWallAdLoader.h>
-#import <AppDavis/ADVSInterstitialAdLoader.h>
 
-@interface ADVSViewController () <ADVSInterstitialAdLoaderDelegate, ADVSIconAdLoaderDelegate, ADVSWallAdLoaderDelegate>
+@interface ADVSViewController () <ADVSIconAdLoaderDelegate, ADVSWallAdLoaderDelegate>
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
-@property (nonatomic) ADVSInterstitialAdLoader *interstitialAdLoader;
 @property (nonatomic) ADVSIconAdLoader *iconAdLoader;
 @property (nonatomic) NSMutableArray *iconAdViews;
 @property (nonatomic) ADVSWallAdLoader *wallAdLoader;
@@ -27,10 +25,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    self.interstitialAdLoader = [ADVSInterstitialAdLoader new];
-    self.interstitialAdLoader.delegate = self;
-    self.interstitialAdLoader.adSpotId = [self interstitialAdSpotId];
     
     NSUInteger iconCount = 6;
     self.iconAdViews = [[NSMutableArray alloc] initWithCapacity:iconCount];
@@ -144,44 +138,6 @@
 {
     ADVSAppDelegate *delegate = (ADVSAppDelegate *) [[UIApplication sharedApplication] delegate];
     return [delegate adspotIdDict][@"interstitial"];
-}
-
-#pragma mark - ADVSInterstitialAdLoaderDelegate
-
-- (void)interstitialAdLoaderDidStartLoadingAd:(ADVSInterstitialAdLoader *)interstitialAdLoader
-{
-    NSLog(@"interstitialAdLoaderDidStartLoadingAd");
-}
-
-- (void)interstitialAdLoaderDidFinishLoadingAd:(ADVSInterstitialAdLoader *)interstitialAdLoader
-{
-    NSLog(@"interstitialAdLoaderDidFinishLoadingAd");
-}
-
-- (void)interstitialAdLoaderDidFinishLoadingAdView:(ADVSInterstitialAdLoader *)interstitialAdLoader
-{
-    NSLog(@"interstitialAdLoaderDidFinishLoadingAdView");
-    [self.interstitialAdLoader displayAd];
-}
-
-- (void)interstitialAdLoaderDidSkipLoadingAd:(ADVSInterstitialAdLoader *)interstitialAdLoader
-{
-    NSLog(@"interstitialAdLoaderDidSkipLoadingAd");
-}
-
-- (void)interstitialAdLoaderDidClickIntersititialAdView:(ADVSInterstitialAdLoader *)interstitialAdLoader
-{
-    NSLog(@"interstitialAdLoaderDidClickIntersititialAdView:");
-}
-
-- (void)interstitialAdLoader:(ADVSInterstitialAdLoader *)interstitialAdLoader didFailToLoadAdWithError:(NSError *)error
-{
-    NSLog(@"interstitialAdLoader:didFailToLoadAdWithError:%@", error);
-}
-
-- (void)interstitialAdLoader:(ADVSInterstitialAdLoader *)interstitialAdLoader didFailToLoadAdViewWithError:(NSError *)error
-{
-    NSLog(@"interstitialAdLoader:didFailToLoadAdViewWithError:%@", error);
 }
 
 #pragma mark - ADVSIconAdLoaderDelegate
