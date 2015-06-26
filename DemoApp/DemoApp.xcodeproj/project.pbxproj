@@ -12,6 +12,7 @@
 		050AEB2F1908AF4B0079FDAB /* ADTransformTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 050AEB291908AF4B0079FDAB /* ADTransformTransition.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		050AEB301908AF4B0079FDAB /* ADTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 050AEB2B1908AF4B0079FDAB /* ADTransition.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		050AEB311908AF4B0079FDAB /* ADTransitioningDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 050AEB2D1908AF4B0079FDAB /* ADTransitioningDelegate.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		0555E6941B3011F000A9A96C /* ADVSSimpleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0555E6931B3011F000A9A96C /* ADVSSimpleTableViewController.m */; };
 		059FCDAC1AA998AC00571904 /* ADVSError.strings in Resources */ = {isa = PBXBuildFile; fileRef = 059FCDAB1AA998AC00571904 /* ADVSError.strings */; };
 		05B4A8D519613B8D00CA4670 /* appdavis.png in Resources */ = {isa = PBXBuildFile; fileRef = 05B4A8D419613B8D00CA4670 /* appdavis.png */; };
 		05CAC80519BD7B2800FB8AE1 /* icon1.png in Resources */ = {isa = PBXBuildFile; fileRef = 05CAC80219BD7B2800FB8AE1 /* icon1.png */; };
@@ -68,6 +69,8 @@
 		050AEB2B1908AF4B0079FDAB /* ADTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADTransition.m; sourceTree = "<group>"; };
 		050AEB2C1908AF4B0079FDAB /* ADTransitioningDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADTransitioningDelegate.h; sourceTree = "<group>"; };
 		050AEB2D1908AF4B0079FDAB /* ADTransitioningDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADTransitioningDelegate.m; sourceTree = "<group>"; };
+		0555E6931B3011F000A9A96C /* ADVSSimpleTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADVSSimpleTableViewController.m; sourceTree = "<group>"; };
+		0555E6951B30120000A9A96C /* ADVSSimpleTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ADVSSimpleTableViewController.h; sourceTree = "<group>"; };
 		059FCDAB1AA998AC00571904 /* ADVSError.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = ADVSError.strings; sourceTree = "<group>"; };
 		05B4A8D419613B8D00CA4670 /* appdavis.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appdavis.png; sourceTree = "<group>"; };
 		05CAC80219BD7B2800FB8AE1 /* icon1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon1.png; sourceTree = "<group>"; };
@@ -164,6 +167,15 @@
 				050AEB2D1908AF4B0079FDAB /* ADTransitioningDelegate.m */,
 			);
 			path = ADTransitionController;
+			sourceTree = "<group>";
+		};
+		0555E6961B3013BD00A9A96C /* SimpleInstream */ = {
+			isa = PBXGroup;
+			children = (
+				0555E6951B30120000A9A96C /* ADVSSimpleTableViewController.h */,
+				0555E6931B3011F000A9A96C /* ADVSSimpleTableViewController.m */,
+			);
+			name = SimpleInstream;
 			sourceTree = "<group>";
 		};
 		05E99B99192CB43200EF9818 /* CustomInstream */ = {
@@ -277,6 +289,7 @@
 				05E99B99192CB43200EF9818 /* CustomInstream */,
 				77F1948418A9BBF200A5F72E /* Images.xcassets */,
 				77F1947018A9BBF200A5F72E /* Supporting Files */,
+				0555E6961B3013BD00A9A96C /* SimpleInstream */,
 			);
 			path = DemoApp;
 			sourceTree = "<group>";
@@ -398,6 +411,7 @@
 				05F7193B1904257800F3A046 /* ADVSSmartAppRssModelManager.m in Sources */,
 				05F15B6A193406D800651C87 /* MNMBottomPullToRefreshManager.m in Sources */,
 				050AEB301908AF4B0079FDAB /* ADTransition.m in Sources */,
+				0555E6941B3011F000A9A96C /* ADVSSimpleTableViewController.m in Sources */,
 				05E99B9D192CB53F00EF9818 /* ADVSInstreamAppTableViewController.m in Sources */,
 				05D1EEDF19F0EBB2003B032D /* ADVSInterstitialViewController.m in Sources */,
 				05F7193519040C5C00F3A046 /* ADVSSmartAppArticleModel.m in Sources */,

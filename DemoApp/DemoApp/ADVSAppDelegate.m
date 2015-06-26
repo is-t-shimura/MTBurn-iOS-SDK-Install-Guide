@@ -46,12 +46,12 @@ static int media_id = 2;
         case 1:
             return @{@"instream": @[@"NDgzOjE", @"Njc4OjI", @"NzA3OjM", @"MTY5OjQ", @"OTMzOjU", @"MzUxOjk", @"OTgxOjUy", @"MjQxOjUz", @"NjA0OjU0"],
                      @"custom_instream": @[@"NDgzOjE", @"NzA3OjM", @"MTY5OjQ", @"OTgxOjUy", @"MjQxOjUz", @"NjA0OjU0"],
-                     @"interstitial": @"TEMP"};
+                     @"interstitial": @"OTM0OjQ1Nw"};
             break;
         case 2:
             return @{@"instream": @[@"NDQ0OjMx", @"OTA2OjMy", @"ODEzOjMz", @"OTIyOjM0", @"NzA2OjM1", @"MzA3OjM2", @"MTI2OjU1", @"OTkzOjU2", @"MzEzOjU3"],
                      @"custom_instream": @[@"NDQ0OjMx", @"ODEzOjMz", @"OTIyOjM0", @"MTI2OjU1", @"OTkzOjU2", @"MzEzOjU3"],
-                     @"interstitial": @"TEMP"};
+                     @"interstitial": @"OTM0OjQ2MQ"};
             break;
     }
 }
