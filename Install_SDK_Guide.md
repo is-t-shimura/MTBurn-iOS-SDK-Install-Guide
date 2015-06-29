@@ -3,13 +3,13 @@
 * [対応環境](#support)
 * [開発環境](#env)
 * [IDFAの使用について](#idfa)
-* [AppDavis iOS SDK をダウンロード](#dl)
-* [AppDavis iOS SDK をインストール](#install)
+* [Hike iOS SDK をダウンロード](#dl)
+* [Hike iOS SDK をインストール](#install)
 * [エラー文言の表示](#error)
 * [CocoaPods の利用](#pods)
 * [ウォール広告とアイコン広告について](#wall_icon)
 
-本ドキュメントは AppDavis iOS SDK を Xcode のプロジェクトに追加し、実際に使える所までを記したものです。
+本ドキュメントは Hike iOS SDK (旧 AppDavis iOS SDK) を Xcode のプロジェクトに追加し、実際に使える所までを記したものです。
 
 <a name="support"></a>
 #対応環境
@@ -41,11 +41,11 @@
 本SDKは広告の成果測定のため IDFA を利用しています。
 
 <a name="dl"></a>
-#AppDavis iOS SDK をダウンロード
+#Hike iOS SDK をダウンロード
 
-以下の URL から AppDavis iOS SDK をダウンロードします。最新のバージョンを選択することを推奨します。
+以下の URL から Hike iOS SDK をダウンロードします。最新のバージョンを選択することを推奨します。
 
-[AppDavis iOS SDK をダウンロード](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/releases)
+[Hike iOS SDK をダウンロード](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/releases)
 
 ダウンロードが完了したら、取得した zip ファイルを解凍して sdk ディレクトリ直下に以下の Framework ファイルを確認して下さい。
 
@@ -61,7 +61,7 @@ $ open DemoApp.xcodeproj/
 ```
 
 <a name="install"></a>
-#AppDavis iOS SDK をインストール
+#Hike iOS SDK をインストール
 
 上記で取得した Framework ファイルをプロジェクトへ追加します。
 
