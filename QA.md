@@ -128,9 +128,9 @@ if (NSFoundationVersionNumber_iOS_6_0 <= floor(NSFoundationVersionNumber)) {
 <a name="race"></a>
 #他社SDKとの競合の解決
 
-AppDavis SDK と他社広告 SDK と同時にご利用頂いた場合に競合が発生し、AppDavis の一部の機能がご利用いただけない事例が報告されています。
+Hike SDK と他社広告 SDK と同時にご利用頂いた場合に競合が発生し、Hike SDK の一部の機能がご利用いただけない事例が報告されています。
 
-解決方法として、それぞれの SDK の利用タイミングに応じて、初期化処理 (AppDavis の場合 `initMedia` 関数) の呼び出し自体を出し分けてしまうことで、衝突の回避ができることがあります。
+解決方法として、それぞれの SDK の利用タイミングに応じて、初期化処理 (Hike の場合 `initMedia` 関数) の呼び出し自体を出し分けてしまうことで、衝突の回避ができることがあります。
 
 ### 現在までに確認された競合の問題とその解消策
 
