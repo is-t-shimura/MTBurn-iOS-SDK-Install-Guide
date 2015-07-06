@@ -766,4 +766,4 @@ ADVSInstreamAdCellWebView.h
 <a name="update"></a>
 # 更新履歴
 
-[github releases](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/releases) をご確認ください
+[CHANGELOG](../CHANGELOG.md) をご確認ください
