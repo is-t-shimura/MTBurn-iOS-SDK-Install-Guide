@@ -16,23 +16,6 @@ static int media_id = 2;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [AppDavis initMedia:[NSString stringWithFormat:@"%d", media_id]];
-    /*
-     [AppDavis initMedia:@"2" params:@{ADVSParameterIconAdWidth: @75.0f,
-                                      ADVSParameterIconAdHeight: @75.0f,
-                                      ADVSParameterIconAdImgWidth: @50.0f,
-                                      ADVSParameterIconAdImgHeight: @50.0f,
-                                      ADVSParameterIconAdTextColor: @"ff0000",
-                                      ADVSParameterIconAdTextAlpha: @1.0f,
-                                      ADVSParameterIconAdTextBgColor: @"ffffff",
-                                      ADVSParameterIconAdTextBgAlpha: @1.0f,
-                                      ADVSParameterIconAdTextVisible: @"1",
-                                      ADVSParameterIconAdTextFontSize: @10.4f,
-                                      ADVSParameterIconAdTextWidth: @50.0f,
-                                      ADVSParameterIconAdTextHeight: @13.0f,
-                                      ADVSParameterIconAdTextPadding: @10.0f,
-                                      ADVSParameterIconAdTextFontAjustWidth: @"0",
-                                      }];
-     */
     return YES;
 }
 

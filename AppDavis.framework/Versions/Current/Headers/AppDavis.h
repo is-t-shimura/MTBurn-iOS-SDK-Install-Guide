@@ -16,21 +16,6 @@
  
  */
 
-extern NSString *const ADVSParameterIconAdWidth;
-extern NSString *const ADVSParameterIconAdHeight;
-extern NSString *const ADVSParameterIconAdImgWidth;
-extern NSString *const ADVSParameterIconAdImgHeight;
-extern NSString *const ADVSParameterIconAdTextColor;
-extern NSString *const ADVSParameterIconAdTextAlpha;
-extern NSString *const ADVSParameterIconAdTextBgColor;
-extern NSString *const ADVSParameterIconAdTextBgAlpha;
-extern NSString *const ADVSParameterIconAdTextVisible;
-extern NSString *const ADVSParameterIconAdTextWidth;
-extern NSString *const ADVSParameterIconAdTextHeight;
-extern NSString *const ADVSParameterIconAdTextPadding;
-extern NSString *const ADVSParameterIconAdTextFontSize;
-extern NSString *const ADVSParameterIconAdTextFontAjustWidth;
-
 @interface AppDavis : NSObject
 
 ///------------------------------------

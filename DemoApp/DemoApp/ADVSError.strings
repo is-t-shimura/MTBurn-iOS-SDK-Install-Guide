@@ -11,6 +11,6 @@
 "1002" = "Internal Error in SDK";
 "1003" = "Set invalid mediaID";
 "1004" = "Failed to download the configuration. Retry to download again";
-"1006" = "Invalid tableView object was given to SDK interface";
-"1007" = "Invalid arguments were given to SDK interface";
-"1008" = "Duplicate same ad requests may have a possibility to response duplicate adinfo. If you want to avoid this possibility, use different adspot_id(or media_id) or wait for the callback of loadCompletion to request next one";
+"1005" = "Invalid tableView object was given to SDK interface";
+"1006" = "Invalid arguments were given to SDK interface";
+"1007" = "Duplicate same ad requests may have a possibility to response duplicate adinfo. If you want to avoid this possibility, use different adspot_id(or media_id) or wait for the callback of loadCompletion to request next one";

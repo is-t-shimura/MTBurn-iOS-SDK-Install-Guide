@@ -16,6 +16,8 @@
 
 @protocol ADVSInterstitialAdLoaderDelegate <NSObject>
 
+@optional
+
 /**
  Tells event just starting interstitial advertisement.
  
