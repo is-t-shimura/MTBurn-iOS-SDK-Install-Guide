@@ -1135,8 +1135,8 @@ In-Feed広告のロードや各種通知をする際に、そのイベントを�
 | mainImageURL | バナー型の矩形画像(広告枠IDごとにサイズ可変)リソース | NSURL オブジェクトです |
 
 - アイコン型の正方形画像とバナー型の矩形画像は次のメソッドを使っても取得することができます。このメソッドは内部的に画像をキャッシュしてくれるため、利用を推奨します。
- - `- (void)loadIconImage:(UIImageView*)iconImageView completion:(void (^)(NSError *error)) completion;` 
- - `- (void)loadImage:(UIImageView*)imageView completion:(void (^)(NSError *error)) completion;` 
+ - `- (void)loadIconImage:(UIImageView*)iconImageView completion:(void (^)(NSError *error)) completion;`
+ - `- (void)loadImage:(UIImageView*)imageView completion:(void (^)(NSError *error)) completion;`
 - `説明・紹介文` は `content` プロパティです。NSObject の [description](https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/Classes/NSObject_Class/index.html#//apple_ref/occ/clm/NSObject/description) メソッドではありません。ご注意ください。
 
 <a name="infeed/custom/format"></a>
@@ -1199,4 +1199,4 @@ ADVSInstreamAdCellWebView.h
 <a name="update"></a>
 # 更新履歴
 
-[github releases](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/releases) をご確認ください
+[CHANGELOG](../CHANGELOG.md) をご確認ください
