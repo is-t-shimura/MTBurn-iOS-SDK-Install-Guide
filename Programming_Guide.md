@@ -78,6 +78,11 @@
 <a name="interstitial/display"></a>
 ##インタースティシャル広告の表示
 
+### 広告枠IDの取得
+管理画面から広告枠 ID を発行します。
+
+**(現段階では担当者にお問い合わせください)**
+
 インタースティシャル広告の表示に必要なファイルは以下です。
 
 ```
@@ -99,17 +104,20 @@ ADVSInterstitialAdLoader を用いて以下の様に実装し、インタース�
 {
     [super viewDidLoad];
 
-    //(2) ADVSInterstitialAdLoader シングルトンを取得して、delegate を設定
+    //(2) 広告枠 ID を設定
+    [[ADVSInterstitialAdLoader sharedInstance] setAdSpotId:adspot_id];
+
+    //(3) ADVSInterstitialAdLoader シングルトンを取得して、delegate を設定
     [ADVSInterstitialAdLoader sharedInstance].delegate = self;
 
-    //(3) インタースティシャル広告ロードの呼び出し
+    //(4) インタースティシャル広告ロードの呼び出し
     [[ADVSInterstitialAdLoader sharedInstance] loadRequest];
 }
 
-//(4) インターステイシャル広告表示準備の完了
+//(5) インターステイシャル広告表示準備の完了
 - (void)interstitialAdLoaderDidFinishLoadingAdView:(ADVSInterstitialAdLoader *)interstitialAdLoader
 {
-    //(5) インターステイシャル広告表示の呼び出し
+    //(6) インターステイシャル広告表示の呼び出し
     [[ADVSInterstitialAdLoader sharedInstance] displayAd];
 }
 
@@ -174,7 +182,7 @@ ADVSInterstitialAdLoaderDelegate に準拠しているので、それ経由で�
 
 インターステイシャル広告を表示する頻度を制御することができます。
 
-管理画面から広告枠 ID を発行します。頻度に関する情報などを設定します。
+頻度に関する情報などを設定します。
 
 **(現段階では担当者にお問い合わせください)**
 
@@ -188,7 +196,7 @@ ADVSInterstitialAdLoaderDelegate に準拠しているので、それ経由で�
 
 これによって、次のようなケースに対応することができます。
 - case 1.
-	- 設定なし
+	- 設定なし（毎回呼ばれます）
 - case 2.
 	- 初回起動後 6 回目の API call で表示、それ以降は前回表示後 11 回目の API call ごとに表示
 	- 広告枠 ID に `OTM0OjQ1Ng`  をセットして試すことができます
