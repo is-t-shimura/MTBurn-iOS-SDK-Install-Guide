@@ -1,10 +1,20 @@
 # Change Log
 
-## [Unreleased](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/tree/HEAD)
+## [v2.0.1](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/tree/v2.0.1) (2015-09-07)
 
-[Full Changelog](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/compare/v2.0.0...HEAD)
+[Full Changelog](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/compare/v2.0.0...v2.0.1)
+
+**Fixed bugs:**
+
+- カオコレ｜テキスト広告が表示されない [\#16](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/issues/16)
 
 **Merged pull requests:**
+
+- Delete unnesessary comment. [\#18](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/pull/18) ([datetaku](https://github.com/datetaku))
+
+- Updated guide. [\#17](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/pull/17) ([datetaku](https://github.com/datetaku))
+
+- Added CHANGELOG [\#14](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/pull/14) ([yoheimuta](https://github.com/yoheimuta))
 
 - Deleted guide about wall and icon [\#13](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/pull/13) ([yoheimuta](https://github.com/yoheimuta))
 
