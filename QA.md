@@ -9,6 +9,7 @@
 * [広告の表示に問題がある（表示されない、重複するなど）](#not_found_ad)
 * [バージョン番号はどういう意味がありますか？](#version)
 * [他社SDKとの競合の解決](#race)
+* [iOS9 ATS 対応](#ats)
 
 <a name="howto"></a>
 #問い合わせの仕方
@@ -137,3 +138,38 @@ Hike SDK と他社広告 SDK と同時にご利用頂いた場合に競合が発
 `i-mobile ios sdk 1.30 以前` と競合が発生することを確認しています
 
 - バージョンアップすることで解消することを合わせて確認しております
+
+<a name="ats"></a>
+#iOS9 ATS 対応
+
+SDK のバージョンは v2.0.1 以降を使う必要があります
+
+また、サーバー側の TLS/SSL 証明書切り替え対応が終わるまでの間は、ATS 無効化を Info.plist に記載する必要があります
+
+- v2.0.0 以前のバージョンを使う場合も同様に ATS を無効にする必要があります
+- サーバー側の証明書切り替え対応は、2015.09 中を目標としています
+
+SDK に同梱されているデモアプリも同様の記述を追記しているので参考にしてください
+
+- [MTBurn-iOS-SDK-Install-Guide/DemoApp-Info.plist at fbd50830ef161f33246522b30f52bf73c31f285d · mtburn/MTBurn-iOS-SDK-Install-Guide](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/blob/fbd50830ef161f33246522b30f52bf73c31f285d/DemoApp/DemoApp/DemoApp-Info.plist#L5-L37)
+
+```xml
+<key>NSAppTransportSecurity</key>
+<dict>
+    <key>NSExceptionDomains</key>
+    <dict>
+        <key>mtburn.com</key>
+        <dict>
+            <key>NSIncludesSubdomains</key>
+            <true/>
+            <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+            <true/>
+        </dict>
+        <key>banner-mtb.dspcdn.com</key>
+        <dict>
+            <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+            <true/>
+        </dict>
+    </dict>
+</dict>
+```
