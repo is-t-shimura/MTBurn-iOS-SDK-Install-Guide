@@ -151,23 +151,16 @@ SDK のバージョンは v2.0.1 以降を使う必要があります
 
 SDK に同梱されているデモアプリも同様の記述を追記しているので参考にしてください
 
-- [MTBurn-iOS-SDK-Install-Guide/DemoApp-Info.plist at fbd50830ef161f33246522b30f52bf73c31f285d · mtburn/MTBurn-iOS-SDK-Install-Guide](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/blob/fbd50830ef161f33246522b30f52bf73c31f285d/DemoApp/DemoApp/DemoApp-Info.plist#L5-L37)
+- [MTBurn-iOS-SDK-Install-Guide/DemoApp-Info.plist at master · mtburn/MTBurn-iOS-SDK-Install-Guide](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/blob/master/DemoApp/DemoApp/DemoApp-Info.plist)
 
 ```xml
 <key>NSAppTransportSecurity</key>
 <dict>
     <key>NSExceptionDomains</key>
     <dict>
-        <key>mtburn.com</key>
-        <dict>
-            <key>NSIncludesSubdomains</key>
-            <true/>
-            <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
-            <true/>
-        </dict>
         <key>banner-mtb.dspcdn.com</key>
         <dict>
-            <key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
+            <key>NSThirdPartyExceptionAllowsInsecureHTTPLoads</key>
             <true/>
         </dict>
     </dict>
