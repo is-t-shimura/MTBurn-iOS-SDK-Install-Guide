@@ -144,25 +144,4 @@ Hike SDK と他社広告 SDK と同時にご利用頂いた場合に競合が発
 
 SDK のバージョンは v2.0.1 以降を使う必要があります
 
-また、サーバー側の TLS/SSL 証明書切り替え対応が終わるまでの間は、ATS 無効化を Info.plist に記載する必要があります
-
-- v2.0.0 以前のバージョンを使う場合も同様に ATS を無効にする必要があります
-- サーバー側の証明書切り替え対応は、2015.09 中を目標としています
-
-SDK に同梱されているデモアプリも同様の記述を追記しているので参考にしてください
-
-- [MTBurn-iOS-SDK-Install-Guide/DemoApp-Info.plist at master · mtburn/MTBurn-iOS-SDK-Install-Guide](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/blob/master/DemoApp/DemoApp/DemoApp-Info.plist)
-
-```xml
-<key>NSAppTransportSecurity</key>
-<dict>
-    <key>NSExceptionDomains</key>
-    <dict>
-        <key>banner-mtb.dspcdn.com</key>
-        <dict>
-            <key>NSThirdPartyExceptionAllowsInsecureHTTPLoads</key>
-            <true/>
-        </dict>
-    </dict>
-</dict>
-```
+アプリ側で別途 ATS 無効化を行う必要はありません

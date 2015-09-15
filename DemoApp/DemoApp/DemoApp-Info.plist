@@ -6,11 +6,6 @@
     <dict>
         <key>NSExceptionDomains</key>
         <dict>
-            <key>banner-mtb.dspcdn.com</key>
-            <dict>
-                <key>NSThirdPartyExceptionAllowsInsecureHTTPLoads</key>
-                <true/>
-            </dict>
             <key>rss.asahi.com</key>
             <dict>
                 <key>NSThirdPartyExceptionAllowsInsecureHTTPLoads</key>
