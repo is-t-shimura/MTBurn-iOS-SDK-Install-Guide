@@ -11,7 +11,7 @@
 #import "ADVSAppDelegate.h"
 #import "MNMBottomPullToRefreshManager.h"
 
-@interface ADVSSimpleTableViewController () <UITableViewDataSource, UITableViewDelegate, MNMBottomPullToRefreshManagerClient>
+@interface ADVSSimpleTableViewController () <UITableViewDataSource, UITableViewDelegate, MNMBottomPullToRefreshManagerClient, ADVSInstreamAdLoaderDelegate>
 @property(nonatomic, strong) NSArray *dataSource;
 @property(nonatomic, strong) ADVSInstreamAdLoader *instreamAdLoader;
 @property(nonatomic, strong) MNMBottomPullToRefreshManager* refreshManager;
@@ -29,6 +29,7 @@
     
     self.instreamAdLoader = [ADVSInstreamAdLoader new];
     
+    self.instreamAdLoader.delegate = self;
     [self.instreamAdLoader bindToTableView:self.tableView adSpotId:[self getAdSpotId]];
     [self.instreamAdLoader loadAd:2 positions:@[@1,@4]];
     
@@ -108,6 +109,37 @@
 - (void)bottomPullToRefreshTriggered:(MNMBottomPullToRefreshManager *)manager
 {
     [self performSelector:@selector(loadMore) withObject:nil afterDelay:0.3f];
+}
+
+#pragma mark - ADVSInstreamAdLoaderDelegate
+- (void)instreamAdLoaderDidStartLoadingAd:(ADVSInstreamAdLoader *)instreamAdLoader
+{
+    NSLog(@"instreamAdLoaderDidStartLoadingAd");
+}
+
+- (void)instreamAdLoaderDidFinishLoadingAd:(ADVSInstreamAdLoader *)instreamAdLoader
+{
+    NSLog(@"instreamAdLoaderDidFinishLoadingAd");
+}
+
+- (void)instreamAdLoaderDidFinishLoadingAdImage:(NSIndexPath *)adIndexPath
+{
+    NSLog(@"instreamAdLoaderDidFinishLoadingAdImage:row=%d:section=%d", (int)adIndexPath.row, (int)adIndexPath.section);
+}
+
+- (void)instreamAdLoaderDidFinishSendingAdClick
+{
+    NSLog(@"instreamAdLoaderDidClickInstreamAd");
+}
+
+- (void)instreamAdLoader:(ADVSInstreamAdLoader *)instreamAdLoader didFailToLoadAdWithError:(NSError *)error
+{
+    NSLog(@"instreamAdLoader:didFailToLoadAdWithError:%@", error);
+}
+
+- (void)instreamAdLoader:(NSIndexPath *)adIndexPath didFailToLoadAdImageWithError:(NSError *)error
+{
+    NSLog(@"instreamAdLoaderDidFailToLoadAdImage:row=%d:section=%d:error=%@", (int)adIndexPath.row, (int)adIndexPath.section, error);
 }
 
 @end
