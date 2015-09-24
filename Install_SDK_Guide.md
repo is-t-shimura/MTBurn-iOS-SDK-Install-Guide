@@ -53,11 +53,16 @@
 AppDavis.framework
 ```
 
-また、デモアプリを試す場合は、DemoApp ディレクトリ内のプロジェクトを立ち上げてください。Framework ファイルの追加は以下の該当する項目を確認して下さい。
+また、デモアプリを試す場合は、DemoApp または DemoAppSwift ディレクトリ内のプロジェクトを立ち上げてください。Framework ファイルの追加は以下の該当する項目を確認して下さい。
 
-```
+```sh
+# Objective-C で実装されたデモアプリです
 $ cd DemoApp/
 $ open DemoApp.xcodeproj/
+
+# Swift で実装されたデモアプリです
+$ cd DemoAppSwift/
+$ open DemoAppSwift.xcodeproj/
 ```
 
 <a name="install"></a>

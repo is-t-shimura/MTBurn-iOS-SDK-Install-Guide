@@ -14,10 +14,10 @@
 		055CCCFF1B9EAD830055C9BC /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 055CCCFD1B9EAD830055C9BC /* Main_iPhone.storyboard */; };
 		055CCD011B9EAD830055C9BC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 055CCD001B9EAD830055C9BC /* Images.xcassets */; };
 		055CCD041B9EAD830055C9BC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 055CCD021B9EAD830055C9BC /* LaunchScreen.xib */; };
-		056841241B9EC4140045E845 /* AppDavis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 056841231B9EC4140045E845 /* AppDavis.framework */; };
 		056841261B9EC4AD0045E845 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0568411B1B9EC2AB0045E845 /* AdSupport.framework */; };
 		057B6F721BA2B48200D908C5 /* ADVSCustomTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 057B6F711BA2B48200D908C5 /* ADVSCustomTableViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		05D72D7D1B9EEC0D00A4487E /* ADVSSimpleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05D72D7C1B9EEC0D00A4487E /* ADVSSimpleTableViewController.swift */; };
+		05EAF6191BB3CB680074498D /* AppDavis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 056841231B9EC4140045E845 /* AppDavis.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,8 +42,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05EAF6191BB3CB680074498D /* AppDavis.framework in Frameworks */,
 				056841261B9EC4AD0045E845 /* AdSupport.framework in Frameworks */,
-				056841241B9EC4140045E845 /* AppDavis.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,7 +241,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -280,7 +280,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
