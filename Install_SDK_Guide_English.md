@@ -3,7 +3,7 @@
 * [Supported Environment](#support)
 * [Development Environment](#env)
 * [About the Use of IDFA](#idfa)
-* [Downloading the Hike iOS SDK] (#dl)
+* [Downloading the Hike iOS SDK](#dl)
 * [Installing the Hike iOS SDK](#install)
 * [Displaying the Error Messages](#error)
 * [Use of CocoaPods](#pods)
