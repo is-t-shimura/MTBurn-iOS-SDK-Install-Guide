@@ -7,10 +7,12 @@
 ## Hike iOS SDK Install Guide
 
 [日本語](Install_SDK_Guide.md)
+[英語（English）](Install_SDK_Guide_English.md)
 
 ## Hike iOS SDK Programming Guide
 
 [日本語](Programming_Guide.md)
+[英語（English）](Programming_Guide_English.md)
 
 ## Hike iOS SDK API Spec (appledoc)
 
@@ -19,3 +21,4 @@
 ## Hike iOS SDK Q&A
 
 [日本語](QA.md)
+[英語（English）](QA_English.md)
