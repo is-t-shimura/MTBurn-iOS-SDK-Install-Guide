@@ -12,8 +12,8 @@
 		053475821C9ABB4C00DF1EFF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 053475801C9ABB4C00DF1EFF /* Main.storyboard */; };
 		053475841C9ABB4C00DF1EFF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 053475831C9ABB4C00DF1EFF /* Assets.xcassets */; };
 		053475871C9ABB4C00DF1EFF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 053475851C9ABB4C00DF1EFF /* LaunchScreen.storyboard */; };
-		053475AD1C9ABBA400DF1EFF /* AppDavis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 053475AC1C9ABBA400DF1EFF /* AppDavis.framework */; };
 		0555EE611C9B96DF007670F0 /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0555EE601C9B96DF007670F0 /* AdSupport.framework */; };
+		0555EE631C9BD7F5007670F0 /* AppDavis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0555EE621C9BD7F5007670F0 /* AppDavis.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,9 +43,9 @@
 		053475881C9ABB4C00DF1EFF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0534758D1C9ABB4C00DF1EFF /* 3211_sampleTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = 3211_sampleTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		053475981C9ABB4C00DF1EFF /* 3211_sampleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = 3211_sampleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		053475AC1C9ABBA400DF1EFF /* AppDavis.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AppDavis.framework; sourceTree = "<group>"; };
 		0555EE5F1C9B955D007670F0 /* HIKE-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HIKE-Bridging-Header.h"; sourceTree = "<group>"; };
 		0555EE601C9B96DF007670F0 /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
+		0555EE621C9BD7F5007670F0 /* AppDavis.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AppDavis.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,8 +53,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0555EE631C9BD7F5007670F0 /* AppDavis.framework in Frameworks */,
 				0555EE611C9B96DF007670F0 /* AdSupport.framework in Frameworks */,
-				053475AD1C9ABBA400DF1EFF /* AppDavis.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,7 +80,7 @@
 			children = (
 				0534757B1C9ABB4C00DF1EFF /* 3211_sample */,
 				0534757A1C9ABB4C00DF1EFF /* Products */,
-				053475AC1C9ABBA400DF1EFF /* AppDavis.framework */,
+				0555EE621C9BD7F5007670F0 /* AppDavis.framework */,
 				0555EE601C9B96DF007670F0 /* AdSupport.framework */,
 			);
 			sourceTree = "<group>";
