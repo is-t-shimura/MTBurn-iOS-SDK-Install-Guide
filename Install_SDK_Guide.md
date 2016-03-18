@@ -119,6 +119,14 @@ Frameworks グループに AppDavis.framework が追加された事を確認で�
 
 これでインストールは完了です。
 
+###Swiftのプロジェクトにインストールする場合
+
+`Bridging-Header.h` ファイルが必要です。
+
+- [付属のサンプルプロジェクト内にあるファイル](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/blob/master/DemoAppSwift/DemoAppSwift/HIKE-Bridging-Header.h) を参考にしてください。
+
+- `Objective-C Bridging Header` プロパティに、`$(SRCROOT)/$(PROJECT)/HIKE-Bridging-Header.h` などを入力する必要がある点に注意ください。
+
 <a name="error"></a>
 #エラー文言の表示
 
