@@ -1,5 +1,18 @@
 # Change Log
 
+## [v2.1.1](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/tree/v2.1.1) (2016-03-24)
+
+[Full Changelog](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/compare/v2.1.0...v2.1.1)
+
+**Closed issues:**
+
+- インフィード広告での案件の取得順を固定したい [\#15](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/issues/15)
+- デモアプリ（iOS）のインフィード広告の取得が失敗する。 [\#20](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/issues/20)
+
+**Merged pull requests:**
+
+- English guide/2401 [\#19](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/pull/19) ([datetaku](https://github.com/datetaku))
+
 ## [v2.1.0](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/tree/v2.1.0) (2015-09-24)
 
 [Full Changelog](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/compare/v2.0.1...v2.1.0)
