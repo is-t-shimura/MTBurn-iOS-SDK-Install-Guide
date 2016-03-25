@@ -14,30 +14,11 @@
 <a name="howto"></a>
 # How to Make Inquiries
 
-### Please check the following before inquiring.
-
-1. Check the `Install-Guide` and [API specification doc.](http://mtburn.github.io/MTBurn-iOS-SDK-Install-Guide/appledoc/latest/) In particular, check that no solution is already given on this QA page
-2. Try operating [a demo project](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/blob/master/DemoApp). Alternatively, recheck the relevant piece of source code
-3. Check [issues] (https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/issues?q=is%3Aissue+is%3Aclosed)
-
 ### Point of Inquiry
 
 - Please utilize [issues](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/issues)
 - Where for some reason, it is difficult to inquire using `issues`, inquire via your representative
  - In this case as well, refer to this item for methods other than using your point of inquiry
-
-### Inquiry Format
-
-- Copy and paste the following format and replace the `---` with the actual content.
- - When processing, if there is no log/project file, providing an answer my take some time; so, please be prepared for this.
-
-```
-- From when: ---
-- What advertisement type: ---
-- Symptoms: ---
-- Reproduction conditions: ---
-- Log/project file when reproducing (if such exists): ---
-```
 
 <a name="info"></a>
 # What Type of Information are you obtaining from the device?
