@@ -1,3 +1,6 @@
+Note: If it is difficult to write an issue in English, you can also write messages
+in both English and your language.
+
 GitHub issues are for bugs / installation problems / feature requests.
 
 To make bugs and feature requests more easy to find and organize, we close issues that are deemed
@@ -6,9 +9,6 @@ out of scope for GitHub Issues.
 For bugs or installation issues, please provide the following information.
 The more information you provide, the more easily we will be able to offer
 help and advice.
-
-If it is difficult to write an issue in English, you can also write messages
-in both English and your language.
 
 ### Please follow the general troubleshooting steps first:
 
