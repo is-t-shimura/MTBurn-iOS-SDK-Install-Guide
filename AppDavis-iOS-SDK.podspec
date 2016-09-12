@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "AppDavis-iOS-SDK"
-  s.version      = "2.1.1"
+  s.version      = "2.1.2"
   s.summary      = "AppDavis SDK for iOS"
   s.homepage     = "https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide"
   s.license      = {
@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios
   s.source = {
       :git => "https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide.git",
-      :tag => "v2.1.1"
+      :tag => "v2.1.2"
   }
   s.vendored_frameworks = 'AppDavis.framework'
 
