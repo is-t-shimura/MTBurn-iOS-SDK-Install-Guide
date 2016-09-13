@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+
+	<title>ADVSInstreamAdLoader Class Reference</title>
+
+	<link rel="stylesheet" href="../css/style.css">
+	<meta name="viewport" content="initial-scale=1, maximum-scale=1.4">
+	<meta name="generator" content="appledoc 2.2.1 (build 1334)">
+</head>
+<body class="appledoc">
+	<header>
+		<div class="container" class="hide-in-xcode">
+			
+			<h1 id="library-title">
+				<a href="../index.html">AppDavis.framework </a>
+			</h1>
+
+			<p id="developer-home">
+				<a href="../index.html">MTBurn</a>
+			</p>
+			
+		</div>
+	</header>
+
+	<aside>
+		<div class="container">
+			<nav>
+				<ul id="header-buttons" role="toolbar">
+					<li><a href="../index.html">Index</a></li>
+<li><a href="../hierarchy.html">Hierarchy</a></li>
+
+					<li id="on-this-page" role="navigation">
+						<label>
+							On This Page
+
+							<div class="chevron">
+								<div class="chevy chevron-left"></div>
+								<div class="chevy chevron-right"></div>
+							</div>
+
+							<select id="jump-to">
+	<option value="top">Jump To&#133;</option>
+	
+	<option value="overview">Overview</option>
+	
+
+	
+	
+	<option value="tasks">Tasks</option>
+	
+	
+
+	
+	
+	<optgroup label="Properties">
+		
+		<option value="//api/name/delegate">delegate</option>
+		
+	</optgroup>
+	
+
+	
+
+	
+	<optgroup label="Instance Methods">
+		
+		<option value="//api/name/ADVSbindToTableView:adSpotId:">- ADVSbindToTableView:adSpotId:</option>
+		
+		<option value="//api/name/ADVSloadAd">- ADVSloadAd</option>
+		
+		<option value="//api/name/ADVSloadAd:positions:">- ADVSloadAd:positions:</option>
+		
+		<option value="//api/name/ADVSloadAdWithReturn:adCount:positions:">- ADVSloadAdWithReturn:adCount:positions:</option>
+		
+		<option value="//api/name/ADVSmeasureImp:">- ADVSmeasureImp:</option>
+		
+		<option value="//api/name/ADVSreloadData">- ADVSreloadData</option>
+		
+		<option value="//api/name/ADVSsendClickEvent:">- ADVSsendClickEvent:</option>
+		
+		<option value="//api/name/ADVSsetAdSpotId:">- ADVSsetAdSpotId:</option>
+		
+	</optgroup>
+	
+	
+</select>
+						</label>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</aside>
+
+	<article>
+		<div id="overview_contents" class="container">
+			<div id="content">
+				<main role="main">
+					<h1 class="title">ADVSInstreamAdLoader Class Reference</h1>
+
+					
+					<div class="section section-specification"><table cellspacing="0"><tbody>
+						<tr>
+	<th>Inherits from</th>
+	<td>NSObject</td>
+</tr><tr>
+	<th>Declared in</th>
+	<td>ADVSInstreamAdLoader.h</td>
+</tr>
+						</tbody></table></div>
+					
+
+                    
+					
+					<div class="section section-overview">
+						<a title="Overview" name="overview"></a>
+						<h2 class="subtitle subtitle-overview">Overview</h2>
+						<p><code>ADVSInstreamAdLoader</code> is for loading instream type advertisements.
+if you want to do so,</p>
+
+<p>2 ways to be prepared by our sdk to load advertisements.</p>
+
+<p>1) full control by sdk
+  1. instantiate this class.
+  2. call - ADVSbindToTableView
+  3. call - <a href="#//api/name/ADVSloadAd">ADVSloadAd</a> or ADVSloadAd:adCount:positions
+  4. call when your tableview is reloaded - <a href="#//api/name/ADVSreloadData">ADVSreloadData</a></p>
+
+<p>2) some control by sdk
+  1. instantiate this class.
+  2. call - ADVSloadAdWithReturn:adCount:positions
+  3. call when an advertisement is displayed - ADVSmeasureImp
+  4. call when an advertisement is clicked   - ADVSsendClickEvent</p>
+
+<p>That&rsquo;s it!</p>
+					</div>
+					
+					
+
+					
+					
+					<div class="section section-tasks">
+						<a title="Tasks" name="tasks"></a>
+						
+
+						
+						
+
+						<div class="task-list">
+							<div class="section-method">
+	<a name="//api/name/delegate" title="delegate"></a>
+	<h3 class="method-title"><code><a href="#//api/name/delegate">&nbsp;&nbsp;delegate</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>This delegate tells loading instream advertisement results.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>@property (nonatomic, weak) id&lt;ADVSInstreamAdLoaderDelegate&gt; delegate</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>This delegate tells loading instream advertisement results.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Protocols/ADVSInstreamAdLoaderDelegate.html">ADVSInstreamAdLoaderDelegate</a>.h</p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ADVSInstreamAdLoader.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/ADVSbindToTableView:adSpotId:" title="ADVSbindToTableView:adSpotId:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/ADVSbindToTableView:adSpotId:">&ndash;&nbsp;ADVSbindToTableView:adSpotId:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>binds this loader to your table view.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)ADVSbindToTableView:(UITableView *)<em>tableView</em> adSpotId:(NSString *)<em>adSpotId</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>tableView</code></th>
+						<td><p>tableView to be binded by this loader</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>adSpotId</code></th>
+						<td><p>adSpotId to be registered in advance</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>binds this loader to your table view.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ADVSInstreamAdLoader.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/ADVSloadAd" title="ADVSloadAd"></a>
+	<h3 class="method-title"><code><a href="#//api/name/ADVSloadAd">&ndash;&nbsp;ADVSloadAd</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>starts loading advertisements for inserting cells to binded tableview and then reload your tableview
+Use it if you want to use parameters registered at the management webpage in advance.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)ADVSloadAd</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>starts loading advertisements for inserting cells to binded tableview and then reload your tableview
+Use it if you want to use parameters registered at the management webpage in advance.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ADVSInstreamAdLoader.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/ADVSloadAd:positions:" title="ADVSloadAd:positions:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/ADVSloadAd:positions:">&ndash;&nbsp;ADVSloadAd:positions:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>starts loading advertisements for inserting limited cells to binded tableview and then reload your tableview,
+if you want to do so.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)ADVSloadAd:(NSUInteger)<em>adCount</em> positions:(NSArray *)<em>positions</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>adCount</code></th>
+						<td><p>advertisement cell count to be put in tableView. If 0 is given, registered is selected.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>positions</code></th>
+						<td><p>each advertisement cell are put at the position in tableView. If nil is given, registered is selected.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>starts loading advertisements for inserting limited cells to binded tableview and then reload your tableview,
+if you want to do so.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ADVSInstreamAdLoader.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/ADVSloadAdWithReturn:adCount:positions:" title="ADVSloadAdWithReturn:adCount:positions:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/ADVSloadAdWithReturn:adCount:positions:">&ndash;&nbsp;ADVSloadAdWithReturn:adCount:positions:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>starts loading advertisements for receiving advertisement informations,
+if you want to do so.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)ADVSloadAdWithReturn:(NSString *)<em>adSpotId</em> adCount:(NSUInteger)<em>adCount</em> positions:(NSArray *)<em>positions</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>adSpotId</code></th>
+						<td><p>adSpotId to be registered in advance</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>adCount</code></th>
+						<td><p>advertisement information count to be received in the callback. If 0 is given, registered is selected.</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>positions</code></th>
+						<td><p>each position to be added into <a href="../Classes/ADVSInstreamInfoModel.html"><code>ADVSInstreamInfoModel</code></a> in order to control ad position. If nil is given, registered is selected.</p>
+
+<p>ex. [self.instreamAdLoader loadAdWithReturn:6 adCount:5 positions:@[@3,@6,@9,@12,@15]];</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>starts loading advertisements for receiving advertisement informations,
+if you want to do so.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ADVSInstreamAdLoader.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/ADVSmeasureImp:" title="ADVSmeasureImp:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/ADVSmeasureImp:">&ndash;&nbsp;ADVSmeasureImp:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>send an impression record to log advertising performance.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)ADVSmeasureImp:(id&lt;ADVSInstreamInfoProtocol&gt;)<em>instreamInfoProtocol</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>instreamInfoModel</code></th>
+						<td><p>advertisement information model to be received in loadAd:adCount:positions</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>send an impression record to log advertising performance.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ADVSInstreamAdLoader.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/ADVSsendClickEvent:" title="ADVSsendClickEvent:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/ADVSsendClickEvent:">&ndash;&nbsp;ADVSsendClickEvent:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>send an click record to log advertising performance.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)ADVSsendClickEvent:(id&lt;ADVSInstreamInfoProtocol&gt;)<em>instreamInfoProtocol</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>instreamInfoModel</code></th>
+						<td><p>advertisement information model to be received in loadAd:adCount:positions</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>send an click record to log advertising performance.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ADVSInstreamAdLoader.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/ADVSreloadData" title="ADVSreloadData"></a>
+	<h3 class="method-title"><code><a href="#//api/name/ADVSreloadData">&ndash;&nbsp;ADVSreloadData</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>reload data in your binded tableview.
+if you used <code>bindToTableView:adSpotId:</code>, invoke this method instead of [your_table_view reloadData].</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)ADVSreloadData</code></div>
+
+		    
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>reload data in your binded tableview.
+if you used <code>bindToTableView:adSpotId:</code>, invoke this method instead of [your_table_view reloadData].</p>
+
+<p><a href="#//api/name/ADVSloadAd">ADVSloadAd</a> and ADVSloadAd:adCount:positions methods invoke this method internally, so you don&rsquo;t have to invoke
+this method explicitly in normal use case.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ADVSInstreamAdLoader.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
+	<a name="//api/name/ADVSsetAdSpotId:" title="ADVSsetAdSpotId:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/ADVSsetAdSpotId:">&ndash;&nbsp;ADVSsetAdSpotId:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>sets an adSpotId.
+if you change an adSpotId dynamically, you can use it.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)ADVSsetAdSpotId:(NSString *)<em>adSpotId</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>adSpotId</code></th>
+						<td><p>adSpotId to be registered in advance</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>sets an adSpotId.
+if you change an adSpotId dynamically, you can use it.</p>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ADVSInstreamAdLoader.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div>
+						</div>
+						
+					</div>
+					
+					
+
+                    
+                    
+          
+				</main>
+
+				<footer>
+					<div class="footer-copyright">
+						
+						<p class="copyright">Copyright &copy; 2016 MTBurn. All rights reserved. Updated: 2016-09-13</p>
+						
+						
+						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>
+						
+					</div>
+				</footer>
+			</div>
+		</div>
+	</article>
+
+	<script src="../js/script.js"></script>
+</body>
+</html>
