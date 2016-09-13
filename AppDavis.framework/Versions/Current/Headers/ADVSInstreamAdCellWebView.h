@@ -17,6 +17,6 @@
 
 @interface ADVSInstreamAdCellWebView : UITableViewCell<ADVSInstreamAdCellInternalProtocol>
 
-- (void)updateCell:(ADVSInstreamWebViewInfoModel*)infoModel completion:(void (^)(NSError *error)) completion;
+- (void)ADVSupdateCell:(ADVSInstreamWebViewInfoModel*)infoModel completion:(void (^)(NSError *error)) completion;
 
 @end

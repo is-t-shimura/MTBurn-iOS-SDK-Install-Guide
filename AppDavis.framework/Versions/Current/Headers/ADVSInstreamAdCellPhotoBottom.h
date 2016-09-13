@@ -16,6 +16,6 @@
  */
 
 @interface ADVSInstreamAdCellPhotoBottom : UITableViewCell<ADVSInstreamAdCellProtocol>
-+ (CGFloat)heightForCell;
-- (void)updateCell:(ADVSInstreamInfoModel*)infoModel completion:(void (^)(NSError *error)) completion;
++ (CGFloat)ADVSheightForCell;
+- (void)ADVSupdateCell:(ADVSInstreamInfoModel*)infoModel completion:(void (^)(NSError *error)) completion;
 @end

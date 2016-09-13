@@ -67,7 +67,7 @@
  @see ADVSInstreamAdLoader.h
  */
 
-- (void)loadIconImage:(UIImageView*)iconImageView completion:(void (^)(NSError *error)) completion;
+- (void)ADVSloadIconImage:(UIImageView*)iconImageView completion:(void (^)(NSError *error)) completion;
 
 /**
  starts loading advertisement main image for assigning a UIImage to the imageView,
@@ -79,5 +79,5 @@
  @see ADVSInstreamAdLoader.h
  */
 
-- (void)loadImage:(UIImageView*)imageView completion:(void (^)(NSError *error)) completion;
+- (void)ADVSloadImage:(UIImageView*)imageView completion:(void (^)(NSError *error)) completion;
 @end

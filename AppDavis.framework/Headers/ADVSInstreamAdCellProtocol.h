@@ -29,7 +29,7 @@
  required height for the advertisement cell format to be displayed
  */
 
-+ (CGFloat)heightForCell;
++ (CGFloat)ADVSheightForCell;
 
 /**
  update the advertisement cell object with using `ADVSInstreamInfoModel` instance.
@@ -40,5 +40,5 @@
  @see ADVSInstreamAdLoader.h
  */
 
-- (void)updateCell:(ADVSInstreamInfoModel*)infoModel completion:(void (^)(NSError *error)) completion;
+- (void)ADVSupdateCell:(ADVSInstreamInfoModel*)infoModel completion:(void (^)(NSError *error)) completion;
 @end

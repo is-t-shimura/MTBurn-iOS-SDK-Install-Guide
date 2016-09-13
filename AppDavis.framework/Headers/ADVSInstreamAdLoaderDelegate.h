@@ -24,7 +24,7 @@
  @param instreamAdLoader Object which is loading instream advertisement.
  */
 
-- (void)instreamAdLoaderDidStartLoadingAd:(ADVSInstreamAdLoader *)instreamAdLoader;
+- (void)ADVSinstreamAdLoaderDidStartLoadingAd:(ADVSInstreamAdLoader *)instreamAdLoader;
 
 /**
  Tells event just finishing instream advertisement.
@@ -32,7 +32,7 @@
  @param instreamAdLoader Object which is loading instream advertisement.
  */
 
-- (void)instreamAdLoaderDidFinishLoadingAd:(ADVSInstreamAdLoader *)instreamAdLoader;
+- (void)ADVSinstreamAdLoaderDidFinishLoadingAd:(ADVSInstreamAdLoader *)instreamAdLoader;
 
 /**
  Tells event just finishing, and returns `ADVSInstreamInfoModel` instances.
@@ -41,7 +41,7 @@
  @param instreamInfoModels Array  which contains `ADVSInstreamInfoModel` instances.
  */
 
-- (void)instreamAdLoaderDidFinishLoadingAdWithReturn:(ADVSInstreamAdLoader *)instreamAdLoader
+- (void)ADVSinstreamAdLoaderDidFinishLoadingAdWithReturn:(ADVSInstreamAdLoader *)instreamAdLoader
                                   instreamInfoModels:(NSArray*)instreamInfoModels;
 
 /**
@@ -50,19 +50,19 @@
  @param adIndexPath Object which is the position of the advertisement cell instance that is being viewed.
  */
 
-- (void)instreamAdLoaderDidFinishLoadingAdImage:(NSIndexPath *)adIndexPath;
+- (void)ADVSinstreamAdLoaderDidFinishLoadingAdImage:(NSIndexPath *)adIndexPath;
 
 /**
  Tells event to send an impression just finishing.
   */
 
-- (void)instreamAdLoaderDidFinishSendingAdImp;
+- (void)ADVSinstreamAdLoaderDidFinishSendingAdImp;
 
 /**
  Tells event which clicked advertisement cell instances.
   */
 
-- (void)instreamAdLoaderDidFinishSendingAdClick;
+- (void)ADVSinstreamAdLoaderDidFinishSendingAdClick;
 
 /**
  Tells event just failed to load instream advertisement.
@@ -71,7 +71,7 @@
  @param error NSError instance.
  */
 
-- (void)instreamAdLoader:(ADVSInstreamAdLoader *)instreamAdLoader didFailToLoadAdWithError:(NSError *)error;
+- (void)ADVSinstreamAdLoader:(ADVSInstreamAdLoader *)instreamAdLoader didFailToLoadAdWithError:(NSError *)error;
 
 /**
  Tells event just failed to display instream advertisement.
@@ -79,7 +79,7 @@
  @param adIndexPath Object which is the position of the advertisement cell instance that is being viewed.
  */
 
-- (void)instreamAdLoader:(NSIndexPath *)adIndexPath didFailToLoadAdImageWithError:(NSError *)error;
+- (void)ADVSinstreamAdLoader:(NSIndexPath *)adIndexPath didFailToLoadAdImageWithError:(NSError *)error;
 
 /**
  Tells event just failed to send an impression.
@@ -88,7 +88,7 @@
  @param error NSError instance.
  */
 
-- (void)instreamAdLoader:(ADVSInstreamAdLoader *)instreamAdLoader didFailToSendImpWithError:(NSError *)error;
+- (void)ADVSinstreamAdLoader:(ADVSInstreamAdLoader *)instreamAdLoader didFailToSendImpWithError:(NSError *)error;
 
 /**
  Tells event just failed to send an clickinfo.
@@ -97,6 +97,6 @@
  @param error NSError instance.
  */
 
-- (void)instreamAdLoader:(ADVSInstreamAdLoader *)instreamAdLoader didFailToSendClickWithError:(NSError *)error;
+- (void)ADVSinstreamAdLoader:(ADVSInstreamAdLoader *)instreamAdLoader didFailToSendClickWithError:(NSError *)error;
 
 @end

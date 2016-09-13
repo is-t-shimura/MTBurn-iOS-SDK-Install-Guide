@@ -30,8 +30,8 @@
  @param mediaId The number which was given by administrator.
 */
 
-+ (void)initMedia:(NSString *)mediaId;
++ (void)ADVSinitMedia:(NSString *)mediaId;
 
-+ (void)initMedia:(NSString *)mediaId params:(NSDictionary*)params;
++ (void)ADVSinitMedia:(NSString *)mediaId params:(NSDictionary*)params;
 
 @end
