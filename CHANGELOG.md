@@ -1,5 +1,8 @@
 # Change Log
 
+## [v3.0.0](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/tree/v3.0.0) (2016-09-13)
+[Full Changelog](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/compare/v2.1.2...v3.0.0)
+
 ## [v2.1.2](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/tree/v2.1.2) (2016-09-12)
 [Full Changelog](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/compare/v2.1.1...v2.1.2)
 
