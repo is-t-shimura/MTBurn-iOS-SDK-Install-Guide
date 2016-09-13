@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8187.4" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="RwD-lr-WFy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="RwD-lr-WFy">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8151.3"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
@@ -38,14 +38,6 @@
                                 </state>
                                 <connections>
                                     <segue destination="7h1-Cv-uTU" kind="push" id="awV-FE-R8D"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="140-gK-HEv">
-                                <rect key="frame" x="122" y="211" width="130" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Move To Interstitial"/>
-                                <connections>
-                                    <segue destination="8Rd-Hc-8FQ" kind="push" id="eBk-bw-KAm"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="MRz-2m-XFB">
@@ -122,21 +114,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gik-Dj-xKY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="331.5" y="1019.5"/>
-        </scene>
-        <!--Interstitial-->
-        <scene sceneID="aSD-gM-L6G">
-            <objects>
-                <viewController title="Interstitial" id="8Rd-Hc-8FQ" customClass="ADVSInterstitialViewController" customModule="DemoAppSwift" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Me9-v9-qsl">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="NSi-sb-tax"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="GXN-Ev-eQB" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="324" y="1739"/>
         </scene>
     </scenes>
 </document>

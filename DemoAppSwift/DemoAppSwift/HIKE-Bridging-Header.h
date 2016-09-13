@@ -11,5 +11,4 @@
 #import <AppDavis/AppDavis.h>
 #import <AppDavis/ADVSInstreamAdLoader.h>
 #import <AppDavis/ADVSInstreamInfoModel.h>
-#import <AppDavis/ADVSInterstitialAdLoader.h>
 #endif

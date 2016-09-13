@@ -24,8 +24,8 @@ class ADVSSimpleTableViewController: UITableViewController, ADVSInstreamAdLoader
 
         // Load HIKE advertisements
         instreamAdLoader.delegate = self
-        instreamAdLoader.bindToTableView(tableView, adSpotId: adSpotId)
-        instreamAdLoader.loadAd(adCount, positions: positions)
+        instreamAdLoader.ADVSbindToTableView(tableView, adSpotId: adSpotId)
+        instreamAdLoader.ADVSloadAd(adCount, positions: positions)
     }
 
     override func didReceiveMemoryWarning() {
@@ -46,27 +46,27 @@ class ADVSSimpleTableViewController: UITableViewController, ADVSInstreamAdLoader
     }
     
     // MARK: - HIKE delegate methods
-    func instreamAdLoaderDidStartLoadingAd(instreamAdLoader: ADVSInstreamAdLoader!) {
-        NSLog("instreamAdLoaderDidStartLoadingAd")
+    func ADVSinstreamAdLoaderDidStartLoadingAd(instreamAdLoader: ADVSInstreamAdLoader!) {
+        NSLog("ADVSinstreamAdLoaderDidStartLoadingAd")
     }
     
-    func instreamAdLoaderDidFinishLoadingAd(instreamAdLoader: ADVSInstreamAdLoader!) {
-        NSLog("instreamAdLoaderDidFinishLoadingAd")
+    func ADVSinstreamAdLoaderDidFinishLoadingAd(instreamAdLoader: ADVSInstreamAdLoader!) {
+        NSLog("ADVSinstreamAdLoaderDidFinishLoadingAd")
     }
     
-    func instreamAdLoaderDidFinishLoadingAdImage(adIndexPath: NSIndexPath!) {
-        NSLog("instreamAdLoaderDidFinishLoadingAdImage:row=%d:section=%d", adIndexPath.row, adIndexPath.section)
+    func ADVSinstreamAdLoaderDidFinishLoadingAdImage(adIndexPath: NSIndexPath!) {
+        NSLog("ADVSinstreamAdLoaderDidFinishLoadingAdImage:row=%d:section=%d", adIndexPath.row, adIndexPath.section)
     }
     
-    func instreamAdLoaderDidFinishSendingAdClick() {
-        NSLog("instreamAdLoaderDidFinishSendingAdClick")
+    func ADVSinstreamAdLoaderDidFinishSendingAdClick() {
+        NSLog("ADVSinstreamAdLoaderDidFinishSendingAdClick")
     }
     
-    func instreamAdLoader(instreamAdLoader: ADVSInstreamAdLoader!, didFailToLoadAdWithError error: NSError!) {
-        NSLog("instreamAdLoader:didFailToLoadAdWithError:%@", error)
+    func ADVSinstreamAdLoader(instreamAdLoader: ADVSInstreamAdLoader!, didFailToLoadAdWithError error: NSError!) {
+        NSLog("ADVSinstreamAdLoader:didFailToLoadAdWithError:%@", error)
     }
     
-    func instreamAdLoader(adIndexPath: NSIndexPath!, didFailToLoadAdImageWithError error: NSError!) {
-        NSLog("instreamAdLoader:didFailToLoadAdImageWithError:%@", error)
+    func ADVSinstreamAdLoader(adIndexPath: NSIndexPath!, didFailToLoadAdImageWithError error: NSError!) {
+        NSLog("ADVSinstreamAdLoader:didFailToLoadAdImageWithError:%@", error)
     }
 }
