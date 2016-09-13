@@ -15,7 +15,7 @@ static int media_id = 2;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [AppDavis initMedia:[NSString stringWithFormat:@"%d", media_id]];
+    [AppDavis ADVSinitMedia:[NSString stringWithFormat:@"%d", media_id]];
     return YES;
 }
 

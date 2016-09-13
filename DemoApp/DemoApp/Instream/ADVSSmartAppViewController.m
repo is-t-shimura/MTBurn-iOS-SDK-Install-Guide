@@ -61,7 +61,7 @@
 {
     self.instreamAdLoader = [ADVSInstreamAdLoader new];
     self.instreamAdLoader.delegate = self;
-    [self.instreamAdLoader bindToTableView:self.tableView adSpotId:_confDict[@"adSpotId"]];
+    [self.instreamAdLoader ADVSbindToTableView:self.tableView adSpotId:_confDict[@"adSpotId"]];
 }
 
 - (void)startDownload
@@ -88,7 +88,7 @@
     }
     _items = temp;
     
-    [self.instreamAdLoader loadAd:5 positions:@[@5,@10,@15,@20,@25]];
+    [self.instreamAdLoader ADVSloadAd:5 positions:@[@5,@10,@15,@20,@25]];
     
     [self.view layoutIfNeeded];
     [self.refreshManager tableViewReloadFinished];
@@ -132,34 +132,34 @@
 }
 
 #pragma mark - ADVSInstreamAdLoaderDelegate
-- (void)instreamAdLoaderDidStartLoadingAd:(ADVSInstreamAdLoader *)instreamAdLoader
+- (void)ADVSinstreamAdLoaderDidStartLoadingAd:(ADVSInstreamAdLoader *)instreamAdLoader
 {
-    NSLog(@"instreamAdLoaderDidStartLoadingAd");
+    NSLog(@"ADVSinstreamAdLoaderDidStartLoadingAd");
 }
 
-- (void)instreamAdLoaderDidFinishLoadingAd:(ADVSInstreamAdLoader *)instreamAdLoader
+- (void)ADVSinstreamAdLoaderDidFinishLoadingAd:(ADVSInstreamAdLoader *)instreamAdLoader
 {
-    NSLog(@"instreamAdLoaderDidFinishLoadingAd");
+    NSLog(@"ADVSinstreamAdLoaderDidFinishLoadingAd");
 }
 
-- (void)instreamAdLoaderDidFinishLoadingAdImage:(NSIndexPath *)adIndexPath
+- (void)ADVSinstreamAdLoaderDidFinishLoadingAdImage:(NSIndexPath *)adIndexPath
 {
-    NSLog(@"instreamAdLoaderDidFinishLoadingAdImage:row=%d:section=%d", (int)adIndexPath.row, (int)adIndexPath.section);
+    NSLog(@"ADVSinstreamAdLoaderDidFinishLoadingAdImage:row=%d:section=%d", (int)adIndexPath.row, (int)adIndexPath.section);
 }
 
-- (void)instreamAdLoaderDidFinishSendingAdClick
+- (void)ADVSinstreamAdLoaderDidFinishSendingAdClick
 {
-    NSLog(@"instreamAdLoaderDidClickInstreamAd");
+    NSLog(@"ADVSinstreamAdLoaderDidClickInstreamAd");
 }
 
-- (void)instreamAdLoader:(ADVSInstreamAdLoader *)instreamAdLoader didFailToLoadAdWithError:(NSError *)error
+- (void)ADVSinstreamAdLoader:(ADVSInstreamAdLoader *)instreamAdLoader didFailToLoadAdWithError:(NSError *)error
 {
-    NSLog(@"instreamAdLoader:didFailToLoadAdWithError:%@", error);
+    NSLog(@"ADVSinstreamAdLoader:didFailToLoadAdWithError:%@", error);
 }
 
-- (void)instreamAdLoader:(NSIndexPath *)adIndexPath didFailToLoadAdImageWithError:(NSError *)error
+- (void)ADVSinstreamAdLoader:(NSIndexPath *)adIndexPath didFailToLoadAdImageWithError:(NSError *)error
 {
-    NSLog(@"instreamAdLoaderDidFailToLoadAdImage:row=%d:section=%d:error=%@", (int)adIndexPath.row, (int)adIndexPath.section, error);
+    NSLog(@"ADVSinstreamAdLoaderDidFailToLoadAdImage:row=%d:section=%d:error=%@", (int)adIndexPath.row, (int)adIndexPath.section, error);
 }
 
 # pragma mark - MNMBottomPullToRefreshManager
@@ -213,7 +213,7 @@
 {
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.refreshControl endRefreshing];
-        [self.instreamAdLoader loadAd:5 positions:@[@5,@10,@15,@20,@25]];
+        [self.instreamAdLoader ADVSloadAd:5 positions:@[@5,@10,@15,@20,@25]];
     });
 }
 

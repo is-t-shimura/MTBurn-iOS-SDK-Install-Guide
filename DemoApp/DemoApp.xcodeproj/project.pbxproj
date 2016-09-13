@@ -12,13 +12,13 @@
 		050AEB2F1908AF4B0079FDAB /* ADTransformTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 050AEB291908AF4B0079FDAB /* ADTransformTransition.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		050AEB301908AF4B0079FDAB /* ADTransition.m in Sources */ = {isa = PBXBuildFile; fileRef = 050AEB2B1908AF4B0079FDAB /* ADTransition.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		050AEB311908AF4B0079FDAB /* ADTransitioningDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 050AEB2D1908AF4B0079FDAB /* ADTransitioningDelegate.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		0540A4B61D865EFF00A4770E /* AppDavis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0540A4B51D865EFF00A4770E /* AppDavis.framework */; };
 		0555E6941B3011F000A9A96C /* ADVSSimpleTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0555E6931B3011F000A9A96C /* ADVSSimpleTableViewController.m */; };
 		059FCDAC1AA998AC00571904 /* ADVSError.strings in Resources */ = {isa = PBXBuildFile; fileRef = 059FCDAB1AA998AC00571904 /* ADVSError.strings */; };
 		05B4A8D519613B8D00CA4670 /* appdavis.png in Resources */ = {isa = PBXBuildFile; fileRef = 05B4A8D419613B8D00CA4670 /* appdavis.png */; };
 		05CAC80519BD7B2800FB8AE1 /* icon1.png in Resources */ = {isa = PBXBuildFile; fileRef = 05CAC80219BD7B2800FB8AE1 /* icon1.png */; };
 		05CAC80619BD7B2800FB8AE1 /* icon2.png in Resources */ = {isa = PBXBuildFile; fileRef = 05CAC80319BD7B2800FB8AE1 /* icon2.png */; };
 		05CAC80719BD7B2800FB8AE1 /* icon3.png in Resources */ = {isa = PBXBuildFile; fileRef = 05CAC80419BD7B2800FB8AE1 /* icon3.png */; };
-		05D1EEDF19F0EBB2003B032D /* ADVSInterstitialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D1EEDE19F0EBB2003B032D /* ADVSInterstitialViewController.m */; };
 		05E99B9D192CB53F00EF9818 /* ADVSInstreamAppTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E99B9B192CB53F00EF9818 /* ADVSInstreamAppTableViewController.m */; };
 		05E99BA0192CB8BB00EF9818 /* ADVSInstreamAppArticleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05E99B9F192CB8BB00EF9818 /* ADVSInstreamAppArticleTableViewCell.xib */; };
 		05E99BA3192CB9D900EF9818 /* ADVSInstreamAppArticleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 05E99BA2192CB9D900EF9818 /* ADVSInstreamAppArticleTableViewCell.m */; };
@@ -45,7 +45,6 @@
 		05F7193819040C5C00F3A046 /* ADVSSmartAppPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F7192C19040C5C00F3A046 /* ADVSSmartAppPageViewController.m */; };
 		05F7193B1904257800F3A046 /* ADVSSmartAppRssModelManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 05F7193A1904257800F3A046 /* ADVSSmartAppRssModelManager.m */; };
 		05F7193D19042C2C00F3A046 /* weather.png in Resources */ = {isa = PBXBuildFile; fileRef = 05F7193C19042C2C00F3A046 /* weather.png */; };
-		771AC06E18BAE92500821834 /* AppDavis.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 771AC06D18BAE92500821834 /* AppDavis.framework */; };
 		77F1946A18A9BBF200A5F72E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77F1946918A9BBF200A5F72E /* Foundation.framework */; };
 		77F1946C18A9BBF200A5F72E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77F1946B18A9BBF200A5F72E /* CoreGraphics.framework */; };
 		77F1946E18A9BBF200A5F72E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 77F1946D18A9BBF200A5F72E /* UIKit.framework */; };
@@ -69,6 +68,7 @@
 		050AEB2B1908AF4B0079FDAB /* ADTransition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADTransition.m; sourceTree = "<group>"; };
 		050AEB2C1908AF4B0079FDAB /* ADTransitioningDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADTransitioningDelegate.h; sourceTree = "<group>"; };
 		050AEB2D1908AF4B0079FDAB /* ADTransitioningDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADTransitioningDelegate.m; sourceTree = "<group>"; };
+		0540A4B51D865EFF00A4770E /* AppDavis.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AppDavis.framework; sourceTree = "<group>"; };
 		0555E6931B3011F000A9A96C /* ADVSSimpleTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADVSSimpleTableViewController.m; sourceTree = "<group>"; };
 		0555E6951B30120000A9A96C /* ADVSSimpleTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ADVSSimpleTableViewController.h; sourceTree = "<group>"; };
 		059FCDAB1AA998AC00571904 /* ADVSError.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = ADVSError.strings; sourceTree = "<group>"; };
@@ -76,8 +76,6 @@
 		05CAC80219BD7B2800FB8AE1 /* icon1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon1.png; sourceTree = "<group>"; };
 		05CAC80319BD7B2800FB8AE1 /* icon2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon2.png; sourceTree = "<group>"; };
 		05CAC80419BD7B2800FB8AE1 /* icon3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon3.png; sourceTree = "<group>"; };
-		05D1EEDD19F0EBB2003B032D /* ADVSInterstitialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ADVSInterstitialViewController.h; sourceTree = "<group>"; };
-		05D1EEDE19F0EBB2003B032D /* ADVSInterstitialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ADVSInterstitialViewController.m; sourceTree = "<group>"; };
 		05E99B9A192CB53F00EF9818 /* ADVSInstreamAppTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ADVSInstreamAppTableViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		05E99B9B192CB53F00EF9818 /* ADVSInstreamAppTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ADVSInstreamAppTableViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		05E99B9F192CB8BB00EF9818 /* ADVSInstreamAppArticleTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ADVSInstreamAppArticleTableViewCell.xib; sourceTree = "<group>"; };
@@ -120,7 +118,6 @@
 		05F719391904257800F3A046 /* ADVSSmartAppRssModelManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = ADVSSmartAppRssModelManager.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		05F7193A1904257800F3A046 /* ADVSSmartAppRssModelManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ADVSSmartAppRssModelManager.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		05F7193C19042C2C00F3A046 /* weather.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weather.png; sourceTree = "<group>"; };
-		771AC06D18BAE92500821834 /* AppDavis.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AppDavis.framework; sourceTree = "<group>"; };
 		77F1946618A9BBF200A5F72E /* DemoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		77F1946918A9BBF200A5F72E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		77F1946B18A9BBF200A5F72E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -144,9 +141,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0540A4B61D865EFF00A4770E /* AppDavis.framework in Frameworks */,
 				77F1946C18A9BBF200A5F72E /* CoreGraphics.framework in Frameworks */,
 				77F1946E18A9BBF200A5F72E /* UIKit.framework in Frameworks */,
-				771AC06E18BAE92500821834 /* AppDavis.framework in Frameworks */,
 				77F1946A18A9BBF200A5F72E /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -265,7 +262,7 @@
 		77F1946818A9BBF200A5F72E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				771AC06D18BAE92500821834 /* AppDavis.framework */,
+				0540A4B51D865EFF00A4770E /* AppDavis.framework */,
 				77F1946918A9BBF200A5F72E /* Foundation.framework */,
 				77F1946B18A9BBF200A5F72E /* CoreGraphics.framework */,
 				77F1946D18A9BBF200A5F72E /* UIKit.framework */,
@@ -283,8 +280,6 @@
 				77F1947E18A9BBF200A5F72E /* Main_iPad.storyboard */,
 				77F1948118A9BBF200A5F72E /* ADVSViewController.h */,
 				77F1948218A9BBF200A5F72E /* ADVSViewController.m */,
-				05D1EEDD19F0EBB2003B032D /* ADVSInterstitialViewController.h */,
-				05D1EEDE19F0EBB2003B032D /* ADVSInterstitialViewController.m */,
 				05F7191819040C5C00F3A046 /* Instream */,
 				05E99B99192CB43200EF9818 /* CustomInstream */,
 				77F1948418A9BBF200A5F72E /* Images.xcassets */,
@@ -413,7 +408,6 @@
 				050AEB301908AF4B0079FDAB /* ADTransition.m in Sources */,
 				0555E6941B3011F000A9A96C /* ADVSSimpleTableViewController.m in Sources */,
 				05E99B9D192CB53F00EF9818 /* ADVSInstreamAppTableViewController.m in Sources */,
-				05D1EEDF19F0EBB2003B032D /* ADVSInterstitialViewController.m in Sources */,
 				05F7193519040C5C00F3A046 /* ADVSSmartAppArticleModel.m in Sources */,
 				05E99BB3192DF2E700EF9818 /* ADVSInstreamAppPageTabView.m in Sources */,
 				05E99BA3192CB9D900EF9818 /* ADVSInstreamAppArticleTableViewCell.m in Sources */,
@@ -551,6 +545,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"${SRCROOT}",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DemoApp/DemoApp-Prefix.pch";
@@ -578,6 +573,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"${SRCROOT}",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DemoApp/DemoApp-Prefix.pch";

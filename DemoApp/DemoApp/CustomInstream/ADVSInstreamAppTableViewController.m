@@ -90,14 +90,14 @@
     if ([item isKindOfClass:[ADVSInstreamInfoModel class]]) {
         
         ADVSInstreamInfoModel *adItem = (ADVSInstreamInfoModel*)item;
-        [cell updateCell:adItem completion:^(NSError *error) {
-            [_instreamAdLoader measureImp:adItem];
+        [cell ADVSupdateCell:adItem completion:^(NSError *error) {
+            [_instreamAdLoader ADVSmeasureImp:adItem];
         }];
     } else if ([item isKindOfClass:[ADVSInstreamWebViewInfoModel class]]) {
         
         ADVSInstreamWebViewInfoModel *adItem = (ADVSInstreamWebViewInfoModel*)item;
-        [(ADVSInstreamAdCellWebView *)cell updateCell:adItem completion:^(NSError *error) {
-            [_instreamAdLoader measureImp:adItem];
+        [(ADVSInstreamAdCellWebView *)cell ADVSupdateCell:adItem completion:^(NSError *error) {
+            [_instreamAdLoader ADVSmeasureImp:adItem];
         }];
     }
     
@@ -111,31 +111,31 @@
     
     switch (self.index) {
         case 0:
-            [self.instreamAdLoader loadAdWithReturn:adSpotIdDictForInstream[0] adCount:6 positions:@[@7,@14,@21,@28,@35,@42]];
+            [self.instreamAdLoader ADVSloadAdWithReturn:adSpotIdDictForInstream[0] adCount:6 positions:@[@7,@14,@21,@28,@35,@42]];
             break;
         case 1:
-            [self.instreamAdLoader loadAdWithReturn:adSpotIdDictForInstream[0] adCount:6 positions:@[@7,@14,@21,@28,@35,@42]];
+            [self.instreamAdLoader ADVSloadAdWithReturn:adSpotIdDictForInstream[0] adCount:6 positions:@[@7,@14,@21,@28,@35,@42]];
             break;
         case 2:
-            [self.instreamAdLoader loadAdWithReturn:adSpotIdDictForInstream[1] adCount:6 positions:@[@7,@14,@21,@28,@35,@42]];
+            [self.instreamAdLoader ADVSloadAdWithReturn:adSpotIdDictForInstream[1] adCount:6 positions:@[@7,@14,@21,@28,@35,@42]];
             break;
         case 3:
-            [self.instreamAdLoader loadAdWithReturn:adSpotIdDictForInstream[2] adCount:6 positions:@[@7,@14,@21,@28,@35,@42]];
+            [self.instreamAdLoader ADVSloadAdWithReturn:adSpotIdDictForInstream[2] adCount:6 positions:@[@7,@14,@21,@28,@35,@42]];
             break;
         case 4:
-            [self.instreamAdLoader loadAdWithReturn:adSpotIdDictForInstream[2] adCount:6 positions:@[@7,@14,@21,@28,@35,@42]];
+            [self.instreamAdLoader ADVSloadAdWithReturn:adSpotIdDictForInstream[2] adCount:6 positions:@[@7,@14,@21,@28,@35,@42]];
             break;
         case 5:
-            [self.instreamAdLoader loadAdWithReturn:adSpotIdDictForInstream[0] adCount:6 positions:@[@7,@14,@21,@28,@35,@42]];
+            [self.instreamAdLoader ADVSloadAdWithReturn:adSpotIdDictForInstream[0] adCount:6 positions:@[@7,@14,@21,@28,@35,@42]];
             break;
         case 6:
-            [self.instreamAdLoader loadAdWithReturn:adSpotIdDictForInstream[3] adCount:6 positions:@[@7,@14,@21,@28,@35,@42]];
+            [self.instreamAdLoader ADVSloadAdWithReturn:adSpotIdDictForInstream[3] adCount:6 positions:@[@7,@14,@21,@28,@35,@42]];
             break;
         case 7:
-            [self.instreamAdLoader loadAdWithReturn:adSpotIdDictForInstream[4] adCount:6 positions:@[@7,@14,@21,@28,@35,@42]];
+            [self.instreamAdLoader ADVSloadAdWithReturn:adSpotIdDictForInstream[4] adCount:6 positions:@[@7,@14,@21,@28,@35,@42]];
             break;
         case 8:
-            [self.instreamAdLoader loadAdWithReturn:adSpotIdDictForInstream[5] adCount:6 positions:@[@7,@14,@21,@28,@35,@42]];
+            [self.instreamAdLoader ADVSloadAdWithReturn:adSpotIdDictForInstream[5] adCount:6 positions:@[@7,@14,@21,@28,@35,@42]];
             break;
         default:
             NSAssert(NO, @"invalid conditions!");
@@ -144,15 +144,15 @@
 }
 
 #pragma mark - ADVSInstreamAdLoaderDelegate
-- (void)instreamAdLoaderDidStartLoadingAd:(ADVSInstreamAdLoader *)instreamAdLoader
+- (void)ADVSinstreamAdLoaderDidStartLoadingAd:(ADVSInstreamAdLoader *)instreamAdLoader
 {
-    NSLog(@"instreamAdLoaderDidStartLoadingAd");
+    NSLog(@"ADVSinstreamAdLoaderDidStartLoadingAd");
 }
 
-- (void)instreamAdLoaderDidFinishLoadingAdWithReturn:(ADVSInstreamAdLoader *)instreamAdLoader
+- (void)ADVSinstreamAdLoaderDidFinishLoadingAdWithReturn:(ADVSInstreamAdLoader *)instreamAdLoader
                                   instreamInfoModels:(NSArray*)instreamInfoModels
 {
-    NSLog(@"instreamAdLoaderDidFinishLoadingAdWithReturn:instreamInfoModels adCount=%d", (int)[instreamInfoModels count]);
+    NSLog(@"ADVSinstreamAdLoaderDidFinishLoadingAdWithReturn:instreamInfoModels adCount=%d", (int)[instreamInfoModels count]);
     
     if ([_items count] < 1) {
         NSLog(@"_items is invalid. Something wrong occur");
@@ -167,29 +167,29 @@
     [self.tableView reloadData];
 }
 
-- (void)instreamAdLoaderDidFinishSendingAdImp
+- (void)ADVSinstreamAdLoaderDidFinishSendingAdImp
 {
-    NSLog(@"instreamAdLoaderDidImpInstreamAd");
+    NSLog(@"ADVSinstreamAdLoaderDidImpInstreamAd");
 }
 
-- (void)instreamAdLoaderDidFinishSendingAdClick
+- (void)ADVSinstreamAdLoaderDidFinishSendingAdClick
 {
-    NSLog(@"instreamAdLoaderDidClickInstreamAd");
+    NSLog(@"ADVSinstreamAdLoaderDidClickInstreamAd");
 }
 
-- (void)instreamAdLoader:(ADVSInstreamAdLoader *)instreamAdLoader didFailToLoadAdWithError:(NSError *)error
+- (void)ADVSinstreamAdLoader:(ADVSInstreamAdLoader *)instreamAdLoader didFailToLoadAdWithError:(NSError *)error
 {
-    NSLog(@"instreamAdLoader:didFailToLoadAdWithError:%@", error);
+    NSLog(@"ADVSinstreamAdLoader:didFailToLoadAdWithError:%@", error);
 }
 
-- (void)instreamAdLoader:(ADVSInstreamAdLoader *)instreamAdLoader didFailToSendImpWithError:(NSError *)error
+- (void)ADVSinstreamAdLoader:(ADVSInstreamAdLoader *)instreamAdLoader didFailToSendImpWithError:(NSError *)error
 {
-    NSLog(@"instreamAdLoader:didFailToSendImpWithError:%@", error);
+    NSLog(@"ADVSinstreamAdLoader:didFailToSendImpWithError:%@", error);
 }
 
-- (void)instreamAdLoader:(ADVSInstreamAdLoader *)instreamAdLoader didFailToSendClickWithError:(NSError *)error
+- (void)ADVSinstreamAdLoader:(ADVSInstreamAdLoader *)instreamAdLoader didFailToSendClickWithError:(NSError *)error
 {
-    NSLog(@"instreamAdLoader:didFailToSendClickWithError:%@", error);
+    NSLog(@"ADVSinstreamAdLoader:didFailToSendClickWithError:%@", error);
 }
 
 #pragma mark - NSXMLParserDelegate
@@ -274,7 +274,7 @@
     
     if ([item isKindOfClass:[ADVSInstreamInfoModel class]]) {
         
-        return [_adCellClass heightForCell];
+        return [_adCellClass ADVSheightForCell];
     } else if ([item isKindOfClass:[ADVSInstreamWebViewInfoModel class]]) {
         
         ADVSInstreamWebViewInfoModel *adItem = (ADVSInstreamWebViewInfoModel*)item;
@@ -291,7 +291,7 @@
     }
     
     id<ADVSInstreamInfoProtocol> adItem = (id<ADVSInstreamInfoProtocol>)_items[indexPath.row];
-    [_instreamAdLoader sendClickEvent:adItem];
+    [_instreamAdLoader ADVSsendClickEvent:adItem];
 }
 
 @end
