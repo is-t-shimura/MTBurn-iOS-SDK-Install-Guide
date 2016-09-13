@@ -3,10 +3,6 @@
 * [まずはじめに](#start)
     * [Media Id の取得](#start/media_id)
     * [コード内初期化](#start/init)
-* [インタースティシャル広告](#interstitial)
-    * [インタースティシャル広告の表示](#interstitial/display)
-    * [インタースティシャル広告表示時のイベント取得](#interstitial/event)
-    * [インターステイシャル広告の表示頻度の制御](#interstitial/freq)
 * [インフィード広告](#infeed)
     * [広告枠IDの取得](#infeed/adspot_id)
     * [簡易版インフィード広告](#infeed/simple)
@@ -62,151 +58,13 @@
 // (2) 初期化メソッドの呼び出し
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [AppDavis initMedia:@"your_media_id"];
+    [AppDavis ADVSinitMedia:@"your_media_id"];
 
     // ...
 }
 ```
 
 この**初期化を行わない限り、後述する広告の取得全般を行う事ができません**ので注意して下さい。
-
-<a name="interstitial"></a>
-#インタースティシャル広告
-
-<a name="interstitial/display"></a>
-##インタースティシャル広告の表示
-
-### 広告枠IDの取得
-管理画面から広告枠 ID を発行します。
-
-インタースティシャル広告の表示に必要なファイルは以下です。
-
-```
-ADVSInterstitialAdLoader.h
-```
-
-ADVSInterstitialAdLoader を用いて以下の様に実装し、インタースティシャル広告を表示します。
-
-```objc
-
-//(1) ヘッダーをインポート
-#import <AppDavis/ADVSInterstitialAdLoader.h>
-
-@interface YourViewController ()
-@end
-
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-
-    //(2) 広告枠 ID を設定
-    [[ADVSInterstitialAdLoader sharedInstance] setAdSpotId:adspot_id];
-
-    //(3) ADVSInterstitialAdLoader シングルトンを取得して、delegate を設定
-    [ADVSInterstitialAdLoader sharedInstance].delegate = self;
-
-    //(4) インタースティシャル広告ロードの呼び出し
-    [[ADVSInterstitialAdLoader sharedInstance] loadRequest];
-}
-
-//(5) インターステイシャル広告表示準備の完了
-- (void)interstitialAdLoaderDidFinishLoadingAdView:(ADVSInterstitialAdLoader *)interstitialAdLoader
-{
-    //(6) インターステイシャル広告表示の呼び出し
-    [[ADVSInterstitialAdLoader sharedInstance] displayAd];
-}
-
-```
-
-上記のように実装する事で、インターステイシャル広告を表示する事が出来ます。
-
-<a name="interstitial/event"></a>
-##インタースティシャル広告表示時のイベント取得
-
-インタースティシャル広告を表示する際に、そのイベントを受け取りたい場合があります。
-
-その場合は ADVSInterstitialAdLoader のプロパティである delegate が、
-
-ADVSInterstitialAdLoaderDelegate に準拠しているので、それ経由で受信する事が出来ます。
-
-```objc
-- (void)viewDidLoad
-{
-    //(1) delegate を設定
-    [ADVSInterstitialAdLoader sharedInstance].delegate = self;
-}
-
-//(2)広告のロード開始時
-- (void)interstitialAdLoaderDidStartLoadingAd:(ADVSInterstitialAdLoader *)interstitialAdLoader
-{
-}
-
-//(3)広告のロード完了時
-- (void)interstitialAdLoaderDidFinishLoadingAd:(ADVSInterstitialAdLoader *)interstitialAdLoader
-{
-}
-
-//(4)広告 View のロード完了時
-- (void)interstitialAdLoaderDidFinishLoadingAdView:(ADVSInterstitialAdLoader *)interstitialAdLoader
-{
-}
-
-//(5)広告のクリック時
-- (void)interstitialAdLoaderDidClickIntersititialAdView:(ADVSInterstitialAdLoader *)interstitialAdLoader
-{
-}
-
-//(6)広告のロード失敗時
-- (void)interstitialAdLoader:(ADVSInterstitialAdLoader *)interstitialAdLoader didFailToLoadAdWithError:(NSError *)error
-{
-}
-
-//(7)広告 View のロード失敗時
-- (void)interstitialAdLoader:(ADVSInterstitialAdLoader *)interstitialAdLoader didFailToLoadAdViewWithError:(NSError *)error
-{
-}
-
-//(8)広告のロードスキップ時
-- (void)interstitialAdLoaderDidSkipLoadingAd:(ADVSInterstitialAdLoader *)interstitialAdLoader
-{
-}
-```
-
-<a name="interstitial/freq"></a>
-##インターステイシャル広告の表示頻度の制御
-
-インターステイシャル広告を表示する頻度を制御することができます。
-
-頻度については、「間隔時間」と「スキップ回数」の設定が可能です。
-
-間隔時間を設定した場合は、一度広告が表示された後、指定された時間の間に`loadRequest`を呼び出しても、広告が表示されなくなります。
-
-スキップ回数を設定した場合は、設定した回数分、`loadRequest`を呼び出しても、スキップされます。
-
-また、アプリを起動してから最初に広告が表示されるまでの頻度についても、別途設定することができます。
-
-これによって、次のようなケースに対応することができます。
-- case 1.
-	- 設定なし（毎回呼ばれます）
-- case 2.
-	- 初回起動後 6 回目の API call で表示、それ以降は前回表示後 11 回目の API call ごとに表示
-	- 広告枠 ID に `OTM0OjQ1Ng`  をセットして試すことができます
-- case 3.
-	- 初回起動後 11 秒後の API call で表示、それ以降は前回表示後 21 秒後の API call ごとに表示
-	- 広告枠 ID に `Mjg5OjQ1Nw`  をセットして試すことができます
-- case 4.
-	- 初回起動後 6 回目の API call で表示、それ以降は前回表示後  21 秒後の API call ごとに表示
-	- 広告枠 ID に `ODA5OjQ1OA`  をセットして試すことができます
-- case 5.
-	- 初回起動後 11 秒後の API call で表示、それ以降は前回表示後  11 回目の API call ごとに表示
-	- 広告枠 ID に `MzIzOjQ1OQ`  をセットして試すことができます
-
-この機能を実装するには、ADVSInterstitialAdLoader のプロパティである adSpotId に広告枠 ID をセットしてください。スキップ時は delegate の `interstitialAdLoaderDidFinishLoadingAdView:interstitialAdLoader` の代わりに、`interstitialAdLoaderDidSkipLoadingAd:interstitialAdLoader` が呼び出されます。
-
-```objc
-[ADVSInterstitialAdLoader sharedInstance].adSpotId = @"your_adspot_id";
-```
 
 <a name="infeed"></a>
 #インフィード広告
@@ -355,21 +213,21 @@ ADVSInstreamAdLoader.h
     self.instreamAdLoader.delegate = self;
 
     //(4) In-Feed広告を挿入したいtableViewと広告枠IDを設定
-    [self.instreamAdLoader bindToTableView:self.tableView adSpotId:@"NDQ0OjMx"];
+    [self.instreamAdLoader ADVSbindToTableView:self.tableView adSpotId:@"NDQ0OjMx"];
 
     // 媒体様のデータ取得完了を待って
     ...
 
     //(5) In-Feed広告ロードを呼び出し
-    [self.instreamAdLoader loadAd];
+    [self.instreamAdLoader ADVSloadAd];
 }
 
 ```
 
 上記のように実装する事で、In-Feed広告を表示する事が出来ます。
-`[your_tableView reloadData]`を呼ぶ必要はありません。`[your_tableView reloadData]`を呼ぶ必要がある場合は、`[self.instreamAdLoader reloadData];`を呼んでください。
+`[your_tableView reloadData]`を呼ぶ必要はありません。`[your_tableView reloadData]`を呼ぶ必要がある場合は、`[self.instreamAdLoader ADVSreloadData];`を呼んでください。
 
-1リクエストあたりの広告案件数と広告位置配列は、`[self.instreamAdLoader loadAd:6 positions:@[@2,@4,@6,@8,@10,@12]];`などのAPIを使ってコントロールすることも出来ます。
+1リクエストあたりの広告案件数と広告位置配列は、`[self.instreamAdLoader ADVSloadAd:6 positions:@[@2,@4,@6,@8,@10,@12]];`などのAPIを使ってコントロールすることも出来ます。
 
 <a name="infeed/simple/event"></a>
 ###簡易版インフィード広告の表示時のイベント取得
@@ -385,32 +243,32 @@ In-Feed広告の表示をする際に、そのイベントを受け取りたい�
 }
 
 //(2)広告のロード開始時
-- (void)instreamAdLoaderDidStartLoadingAd:(ADVSInstreamAdLoader *)instreamAdLoader
+- (void)ADVSinstreamAdLoaderDidStartLoadingAd:(ADVSInstreamAdLoader *)instreamAdLoader
 {
 }
 
 //(3)広告のロード完了時
-- (void)instreamAdLoaderDidFinishLoadingAd:(ADVSInstreamAdLoader *)instreamAdLoader
+- (void)ADVSinstreamAdLoaderDidFinishLoadingAd:(ADVSInstreamAdLoader *)instreamAdLoader
 {
 }
 
 //(4)広告Viewのロード完了時
-- (void)instreamAdLoaderDidFinishLoadingAdImage:(NSIndexPath *)adIndexPath
+- (void)ADVSinstreamAdLoaderDidFinishLoadingAdImage:(NSIndexPath *)adIndexPath
 {
 }
 
 //(5)広告のクリック処理完了時
-- (void)instreamAdLoaderDidFinishSendingAdClick
+- (void)ADVSinstreamAdLoaderDidFinishSendingAdClick
 {
 }
 
 //(6)広告のロード失敗時
-- (void)instreamAdLoader:(ADVSInstreamAdLoader *)instreamAdLoader didFailToLoadAdWithError:(NSError *)error
+- (void)ADVSinstreamAdLoader:(ADVSInstreamAdLoader *)instreamAdLoader didFailToLoadAdWithError:(NSError *)error
 {
 }
 
 //(7)広告Viewのロード失敗時
-- (void)instreamAdLoader:(NSIndexPath *)adIndexPath didFailToLoadAdImageWithError:(NSError *)error
+- (void)ADVSinstreamAdLoader:(NSIndexPath *)adIndexPath didFailToLoadAdImageWithError:(NSError *)error
 {
 }
 
@@ -424,7 +282,7 @@ In-Feed広告の表示をする際に、そのイベントを受け取りたい�
 - (void)loadMore
 {
 	// 追加の広告をロードして、広告位置配列をもとにテーブル内の適切な位置に挿入します
-    [self.instreamAdLoader loadAd];
+    [self.instreamAdLoader ADVSloadAd];
 }
 ```
 
@@ -532,7 +390,7 @@ In-Feed広告の表示をする際に、そのイベントを受け取りたい�
 <a name="infeed/simple/caution"></a>
 ###簡易版インフィード広告を使う上での注意点
 
-`- (void)bindToTableView:adSpotId:`に渡す`UITableView`は、section数が1つである場合のみ動作保証されます。
+`- (void)ADVSbindToTableView:adSpotId:`に渡す`UITableView`は、section数が1つである場合のみ動作保証されます。
 
 <a name="infeed/custom"></a>
 ##カスタムインフィード広告
@@ -579,11 +437,11 @@ ADVSInstreamInfoModel.h
     self.instreamAdLoader.delegate = self;
 
     //(4) In-Feed広告ロードを呼び出し
-    [self.instreamAdLoader loadAdWithReturn:@"NDQ0OjMx" adCount:6 positions:@[@3,@6,@9,@12,@15,@18]];
+    [self.instreamAdLoader ADVSloadAdWithReturn:@"NDQ0OjMx" adCount:6 positions:@[@3,@6,@9,@12,@15,@18]];
 }
 
 //(5) In-Feed広告ロードの完了
-- (void)instreamAdLoaderDidFinishLoadingAdWithReturn:(ADVSInstreamAdLoader *)instreamAdLoader
+- (void)ADVSinstreamAdLoaderDidFinishLoadingAdWithReturn:(ADVSInstreamAdLoader *)instreamAdLoader
                                   instreamInfoModels:(NSArray*)instreamInfoModels
 {
 	//(6) Instrea広告情報を受け取る
@@ -618,13 +476,13 @@ ADVSInstreamInfoModel.h
         self.adIndicatorLabel.text = @"PR";
     }
 
-    [infoModel loadIconImage:self.adIconImageView completion:^(NSError *iconImageLoadError) {
-        [infoModel loadImage:self.adImageView completion:^(NSError *imageLoadError) {
+    [infoModel ADVSloadIconImage:self.adIconImageView completion:^(NSError *iconImageLoadError) {
+        [infoModel ADVSloadImage:self.adImageView completion:^(NSError *imageLoadError) {
             if (iconImageLoadError || imageLoadError) {
                 NSLog(@"error");
             } else {
                 NSLog(@"ok, start sending an impression log");
-			     [self.instreamAdLoader measureImp:infoModel];
+			     [self.instreamAdLoader ADVSmeasureImp:infoModel];
             }
         }];
     }];
@@ -634,13 +492,13 @@ ADVSInstreamInfoModel.h
 <a name="infeed/custom/imp"></a>
 ###カスタムインフィード広告のインプレッション通知
 広告の表示が完了したら、インプレッションを通知してください。
-`ADVSInstreamAdLoader.h`の`measureImp:`を呼び出してください。
+`ADVSInstreamAdLoader.h`の`ADVSmeasureImp:`を呼び出してください。
 
 
 <a name="infeed/custom/click"></a>
 ###カスタムインフィード広告のクリック時の遷移処理
 広告がクリックされたら、以下のメソッドを呼び出すことで、適切にユーザーを遷移させることができます。
-`ADVSInstreamAdLoader.h`の`sendClickEvent:`を呼び出してください。
+`ADVSInstreamAdLoader.h`の`ADVSsendClickEvent:`を呼び出してください。
 
 <a name="infeed/custom/event"></a>
 ###カスタムインフィード広告のロードと各種通知時のイベント取得
@@ -656,38 +514,38 @@ In-Feed広告のロードや各種通知をする際に、そのイベントを�
 }
 
 //(2)広告のロード開始時
-- (void)instreamAdLoaderDidStartLoadingAd:(ADVSInstreamAdLoader *)instreamAdLoader
+- (void)ADVSinstreamAdLoaderDidStartLoadingAd:(ADVSInstreamAdLoader *)instreamAdLoader
 {
 }
 
 //(3)広告のロード完了時
-- (void)instreamAdLoaderDidFinishLoadingAdWithReturn:(ADVSInstreamAdLoader *)instreamAdLoader
+- (void)ADVSinstreamAdLoaderDidFinishLoadingAdWithReturn:(ADVSInstreamAdLoader *)instreamAdLoader
                                   instreamInfoModels:(NSArray*)instreamInfoModels
 {
 }
 
 //(4)広告のインプレッション通知完了時
-- (void)instreamAdLoaderDidFinishSendingAdImp
+- (void)ADVSinstreamAdLoaderDidFinishSendingAdImp
 {
 }
 
 //(5)広告のクリック処理完了時
-- (void)instreamAdLoaderDidFinishSendingAdClick
+- (void)ADVSinstreamAdLoaderDidFinishSendingAdClick
 {
 }
 
 //(6)広告のロード失敗時
-- (void)instreamAdLoader:(ADVSInstreamAdLoader *)instreamAdLoader didFailToLoadAdWithError:(NSError *)error
+- (void)ADVSinstreamAdLoader:(ADVSInstreamAdLoader *)instreamAdLoader didFailToLoadAdWithError:(NSError *)error
 {
 }
 
 //(7)広告のインプレッション通知失敗時
-- (void)instreamAdLoader:(ADVSInstreamAdLoader *)instreamAdLoader didFailToSendImpWithError:(NSError *)error
+- (void)ADVSinstreamAdLoader:(ADVSInstreamAdLoader *)instreamAdLoader didFailToSendImpWithError:(NSError *)error
 {
 }
 
 //(8)広告のクリック処理失敗時
-- (void)instreamAdLoader:(ADVSInstreamAdLoader *)instreamAdLoader didFailToSendClickWithError:(NSError *)error
+- (void)ADVSinstreamAdLoader:(ADVSInstreamAdLoader *)instreamAdLoader didFailToSendClickWithError:(NSError *)error
 {
 }
 
@@ -707,8 +565,8 @@ In-Feed広告のロードや各種通知をする際に、そのイベントを�
 | mainImageURL | バナー型の矩形画像(広告枠IDごとにサイズ可変)リソース | NSURL オブジェクトです |
 
 - アイコン型の正方形画像とバナー型の矩形画像は次のメソッドを使っても取得することができます。このメソッドは内部的に画像をキャッシュしてくれるため、利用を推奨します。
- - `- (void)loadIconImage:(UIImageView*)iconImageView completion:(void (^)(NSError *error)) completion;`
- - `- (void)loadImage:(UIImageView*)imageView completion:(void (^)(NSError *error)) completion;`
+ - `- (void)ADVSloadIconImage:(UIImageView*)iconImageView completion:(void (^)(NSError *error)) completion;`
+ - `- (void)ADVSloadImage:(UIImageView*)imageView completion:(void (^)(NSError *error)) completion;`
 - `説明・紹介文` は `content` プロパティです。NSObject の [description](https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/Classes/NSObject_Class/index.html#//apple_ref/occ/clm/NSObject/description) メソッドではありません。ご注意ください。
 
 <a name="infeed/custom/format"></a>
@@ -758,7 +616,7 @@ ADVSInstreamAdCellWebView.h
 	    [cell updateCell:adItem completion:^(NSError *error) {
 
 			//(5) 描画が完了後、インプレッションログを送信する
-    	    [self.instreamAdLoader measureImp:adItem];
+    	    [self.instreamAdLoader ADVSmeasureImp:adItem];
 	    }];
 
     	return cell;

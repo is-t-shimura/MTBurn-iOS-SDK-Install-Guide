@@ -3,10 +3,6 @@
 * [Things to Do First](#start)
     * [Acquisition of Media ID](#start/media_id)
     * [Initialization within the Code](#start/init)
-* [Interstitial Advertisements](#interstitial)
-    * [Displaying Interstitial Advertisements](#interstitial/display)
-    * [Acquiring Events when Displaying Interstitial Advertisements](#interstitial/event)
-    * [Controlling the Display Frequency of Interstitial Advertisements](#interstitial/freq)
 * [In-feed Advertisements](#infeed)
     * [Acquiring an Ad Spot ID](#infeed/adspot_id)
     * [Simple In-feed Advertisements](#infeed/simple)
@@ -27,19 +23,19 @@
 
 <a name="start"></a>
 # Things to Do First
-This guide provides an outline of how to use SDK. 
+This guide provides an outline of how to use SDK.
 
-Refer to the comments in each header file within the framework for details on the API specification. 
+Refer to the comments in each header file within the framework for details on the API specification.
 
 <a name="start/media_id"></a>
 ## Acquiring the Media ID
 
-Register and issue the Media ID from the Management Screen. 
-Make sure you do not forget this Media ID as it is used to identify the application. 
+Register and issue the Media ID from the Management Screen.
+Make sure you do not forget this Media ID as it is used to identify the application.
 
 ### Test ID
 
-You can use Media ID 1 for test purposes. Dummy data is displayed, enabling you to confirm the operation. Media ID 2 can be used for everything except interstitial advertisements. The main data is displayed, so this can be used when confirming visually. 
+You can use Media ID 1 for test purposes. Dummy data is displayed, enabling you to confirm the operation. Media ID 2 can be used for everything except interstitial advertisements. The main data is displayed, so this can be used when confirming visually.
 
 <a name="start/init"></a>
 ## Initialization within the Code
@@ -57,153 +53,21 @@ Unless there is any specific reason not to, specify this as
 // (2) Call initialization method
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [AppDavis initMedia:@"your_media_id"];
+    [AppDavis ADVSinitMedia:@"your_media_id"];
 
     // ...
 }
 ```
 
-Please be aware that **unless this initialization takes place, acquiring the advertisements will generally not be possible**. This is described below. 
+Please be aware that **unless this initialization takes place, acquiring the advertisements will generally not be possible**. This is described below.
 
-<a name="interstitial"></a>
-# Interstitial Advertisements
-
-<a name="interstitial/display"></a>
-## Displaying Interstitial Advertisements
-
-### Acquiring the Ad Spot ID
-
-The Ad Spot ID is issued from the Management Screen.
-
-The files required for displaying the interstitial advertisements are as follows. 
-
-```
-ADVSInterstitialAdLoader.h
-```
-
-Using ADVSInterstitialAdLoader, this is implemented in the following way to display interstitial advertisements. 
-
-```objc
-//(1) Import headers
-#import <AppDavis/ADVSInterstitialAdLoader.h>
-
-@interface YourViewController ()
-@end
-
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-
-    //(2) Set an adspot_id 
-    [[ADVSInterstitialAdLoader sharedInstance] setAdSpotId:adspot_id];
-
-    //(3) Acquire the ADVSInterstitialAdLoader singleton and set the delegate
-    [ADVSInterstitialAdLoader sharedInstance].delegate = self;
-
-    //(4) Call interstitial advertisement load
-    [[ADVSInterstitialAdLoader sharedInstance] loadRequest];
-}
-
-//(5) Interstitial advertisement display preparation is complete
-- (void)interstitialAdLoaderDidFinishLoadingAdView:(ADVSInterstitialAdLoader *)interstitialAdLoader
-{
-    //(6) Call interstitial advertisement display 
-    [[ADVSInterstitialAdLoader sharedInstance] displayAd];
-}
-```
-
-If the abovementioned steps are followed, interstitial advertisements can be displayed.
-
-<a name="interstitial/event"></a>
-## Event Acquisition when Displaying Interstitial Advertisements
-
-When displaying interstitial advertisements, there may be times when you want to receive this event. 
-
-In this case, ADVSInterstitialAdLoader is set to ADVSInterstitialAdLoaderDelegate. Delegate is an ADVSInterstitialAdLoader property allowing the event to be received. 
-
-```objc
-- (void)viewDidLoad
-{
-    //(1) Set delegate
-    [ADVSInterstitialAdLoader sharedInstance].delegate = self;
-}
-
-//(2) When loading advertisements
-- (void)interstitialAdLoaderDidStartLoadingAd:(ADVSInterstitialAdLoader *)interstitialAdLoader
-{
-}
-
-//(3) When advertisement loading is complete
-- (void)interstitialAdLoaderDidFinishLoadingAd:(ADVSInterstitialAdLoader *)interstitialAdLoader
-{
-}
-
-//(4)When advertisement View load is complete
-- (void)interstitialAdLoaderDidFinishLoadingAdView:(ADVSInterstitialAdLoader *)interstitialAdLoader
-{
-}
-
-//(5) When clicking an advertisement
-- (void)interstitialAdLoaderDidClickIntersititialAdView:(ADVSInterstitialAdLoader *)interstitialAdLoader
-{
-}
-
-//(6) When an advertisement load fails
-- (void)interstitialAdLoader:(ADVSInterstitialAdLoader *)interstitialAdLoader didFailToLoadAdWithError:(NSError *)error
-{
-}
-
-//(7) When an advertisement View load fails
-- (void)interstitialAdLoader:(ADVSInterstitialAdLoader *)interstitialAdLoader didFailToLoadAdViewWithError:(NSError *)error
-{
-}
-
-//(8) During advertisement load skip
-- (void)interstitialAdLoaderDidSkipLoadingAd:(ADVSInterstitialAdLoader *)interstitialAdLoader
-{
-}
-```
-<a name="interstitial/freq"></a>
-## Control of the Interstitial Advertisement Display Frequency
-
-You can control the frequency with which the interstitial advertisements are displayed. 
-
-The frequency can be set using “interval time” or “number of skips”. 
-
-When the interval time is selected, the advertisement will not be delayed for the set time even if `loadRequest` is called. 
-When the number of skips is selected, even if `loadRequest` is called the set number of times, it will skip. 
-Furthermore, it is also possible to separately set the time from when the application is started until the advertisement is first displayed. 
-
-This enables us to handle the following type of cases. 
-
-- case 1.
-	- No setting (called each time)
-- case 2.
-	- Displayed on the 6th API call after first startup and following that displayed on every 11th API call after the previous display
-	- This can be tested by setting `OTM0OjQ1Ng` as the adspot_id
-- case 3.
-	- Displayed on the 11 seconds after API call after the first startup, and following this displayed on API calls every 21 seconds after the previous display
-	- This can be tested by setting `Mjg5OjQ1Nw` as the adspot_id
-- case 4.
-	- Displayed on the 6th API call after the first startup, and following that displayed on API calls every 21 seconds after the previous display
-	- This can be tested by setting `ODA5OjQ1OA` as the adspot_id
-- case 5.
-	- Displayed on the API call 11 seconds after the initial startup, and following that displayed on every 11th API call after the previous display
-	- This can be tested by setting `MzIzOjQ1OQ` as the adspot_id
-
-To implement this function, set the advertisement ID in the ADVSInterstitialAdLoader property adSpotId. When skipping, the `interstitialAdLoaderDidSkipLoadingAd:interstitialAdLoader` is called in place of the delegate `interstitialAdLoaderDidFinishLoadingAdView:interstitialAdLoader`.
-
-```objc
-[ADVSInterstitialAdLoader sharedInstance].adSpotId = @"your_adspot_id";
-```
 <a name="infeed"></a>
 # In-feed Advertisements
 
 <a name="infeed/adspot_id"></a>
 ## Acquiring the Ad Spot ID
 
-The adspot_id is issued from the Management Screen. Next, set the following information to dispense the adspot_id. 
+The adspot_id is issued from the Management Screen. Next, set the following information to dispense the adspot_id.
 
 - Ad spot name
 - Advertisement image size
@@ -212,9 +76,9 @@ The adspot_id is issued from the Management Screen. Next, set the following info
 - Advertisement location array
 - HTML, width, height (only required when the drawing format in WebView has been selected)
 
-The following information is set for test purposes only. As this is linked to actual projects, it may be less than the number of projects described below. In this case, please contact a representative. 
+The following information is set for test purposes only. As this is linked to actual projects, it may be less than the number of projects described below. In this case, please contact a representative.
 
-After setting the media_id to 2, set the following advertisement ID (adspot_id) 
+After setting the media_id to 2, set the following advertisement ID (adspot_id)
 
 ```
 Advertisement ID: NDQ0OjMx
@@ -304,14 +168,14 @@ width: NULL (screen full width)
 height: 230
 ```
 
-**You should contact your representative for inquiries about registering for the new ad spot**. 
+**You should contact your representative for inquiries about registering for the new ad spot**.
 
 <a name="infeed/simple"></a>
 ## Simple In-feed advertisements
 
 The simple In-feed advertisement assumes the use of `UITableView`.
 
-For all other uses, refer to the custom In-feed advertisement described below. 
+For all other uses, refer to the custom In-feed advertisement described below.
 
 <a name="infeed/simple/display"></a>
 ### Displaying Simple In-feed Advertisements
@@ -339,31 +203,31 @@ Using the above files to load the In-feed advertisements, this is implemented as
 {
     [super viewDidLoad];
 
-    //(3) Create instance of ADVSInstreamAdLoader and set delegate 
+    //(3) Create instance of ADVSInstreamAdLoader and set delegate
     self.instreamAdLoader = [ADVSInstreamAdLoader new];
     self.instreamAdLoader.delegate = self;
 
-    //(4) Set the tableView and adspot_id in which the In-feed advertisements are to be inserted 
-    [self.instreamAdLoader bindToTableView:self.tableView adSpotId:@"NDQ0OjMx"];
+    //(4) Set the tableView and adspot_id in which the In-feed advertisements are to be inserted
+    [self.instreamAdLoader ADVSbindToTableView:self.tableView adSpotId:@"NDQ0OjMx"];
 
     // Wait for the media data acquisition to complete
     ...
     //(5) Call the In-feed advertisement load
-    [self.instreamAdLoader loadAd];
+    [self.instreamAdLoader ADVSloadAd];
 }
 ```
 
 This abovementioned process allows the In-feed advertisement to be displayed. There is no need to call `[your_tableView reloadData]`. When it is necessary to call `[your_tableView reloadData]`, call `[self.instreamAdLoader reloadData];`
 
-The number of advertisements and the advertisement array per request can be controlled using APIs such as `[self.instreamAdLoader loadAd:6 positions:@[@2,@4,@6,@8,@10,@12]];` 
+The number of advertisements and the advertisement array per request can be controlled using APIs such as `[self.instreamAdLoader ADVSloadAd:6 positions:@[@2,@4,@6,@8,@10,@12]];`
 
 <a name="infeed/simple/event"></a>
 ### Acquisition of Events when Displaying Simple In-Feed Advertisements
 
-When displaying In-Feed advertisements, there may be times you want to receive these events. 
+When displaying In-Feed advertisements, there may be times you want to receive these events.
 
-In this case, `ADVSInterstitialAdLoader` is set to `ADVSInterstitialAdLoaderDelegate`. 
-Delegate is an `ADVSInterstitialAdLoader` property allowing the event to be received. 
+In this case, `ADVSInterstitialAdLoader` is set to `ADVSInterstitialAdLoaderDelegate`.
+Delegate is an `ADVSInterstitialAdLoader` property allowing the event to be received.
 
 ```objc
 - (void)viewDidLoad
@@ -373,51 +237,51 @@ Delegate is an `ADVSInterstitialAdLoader` property allowing the event to be rece
 }
 
 //(2)When advertisement loading begins
-- (void)instreamAdLoaderDidStartLoadingAd:(ADVSInstreamAdLoader *)instreamAdLoader
+- (void)ADVSinstreamAdLoaderDidStartLoadingAd:(ADVSInstreamAdLoader *)instreamAdLoader
 {
 }
 
 //(3)When loading of advertisements is complete
-- (void)instreamAdLoaderDidFinishLoadingAd:(ADVSInstreamAdLoader *)instreamAdLoader
+- (void)ADVSinstreamAdLoaderDidFinishLoadingAd:(ADVSInstreamAdLoader *)instreamAdLoader
 {
 }
 
 //(4) When loading of advertisement View is complete
-- (void)instreamAdLoaderDidFinishLoadingAdImage:(NSIndexPath *)adIndexPath
+- (void)ADVSinstreamAdLoaderDidFinishLoadingAdImage:(NSIndexPath *)adIndexPath
 {
 }
 
 //(5)When advertisement click processing is complete
-- (void)instreamAdLoaderDidFinishSendingAdClick
+- (void)ADVSinstreamAdLoaderDidFinishSendingAdClick
 {
 }
 
 //(6)When loading of advertisements fails
-- (void)instreamAdLoader:(ADVSInstreamAdLoader *)instreamAdLoader didFailToLoadAdWithError:(NSError *)error
+- (void)ADVSinstreamAdLoader:(ADVSInstreamAdLoader *)instreamAdLoader didFailToLoadAdWithError:(NSError *)error
 {
 }
 
 //(7) When loading of advertisement View fails
-- (void)instreamAdLoader:(NSIndexPath *)adIndexPath didFailToLoadAdImageWithError:(NSError *)error
+- (void)ADVSinstreamAdLoader:(NSIndexPath *)adIndexPath didFailToLoadAdImageWithError:(NSError *)error
 {
 }
 ```
 <a name="infeed/simple/additional_load"></a>
 ### Additional Loading of Simple In-feed Advertisements
 
-In the case of a UI that reads in additional feeds when the user arrives at the bottom of the site, it is possible to load additional advertisements. 
+In the case of a UI that reads in additional feeds when the user arrives at the bottom of the site, it is possible to load additional advertisements.
 
 ```objc
 - (void)loadMore
 {
     //Loads additional advertisements and inserts the advertising location array in an appropriate location within the table
-    [self.instreamAdLoader loadAd];
+    [self.instreamAdLoader ADVSloadAd];
 }
 ```
 <a name="infeed/simple/format"></a>
 ### Simple In-feed Advertisement Format
 
-At present, seven advertisement formats can be used. The settings are [as follows](## Acquiring the Ad Spot ID): 
+At present, seven advertisement formats can be used. The settings are [as follows](## Acquiring the Ad Spot ID):
 
 - 1-1) ThumnailMiddle
 
@@ -510,19 +374,19 @@ At present, seven advertisement formats can be used. The settings are [as follow
     //  -----------------------------------------------------
 ```
 - 1-7) WebView
-	- By submitting HTML, it is possible to draw in WebView within the application. 
+	- By submitting HTML, it is possible to draw in WebView within the application.
 
 <a name="infeed/simple/caution"></a>
 ### Notes when Using Simple In-feed Advertisements
 
-- Operation of `UITableView` passed to `(void)bindToTableView:adSpotId:` is guaranteed only when there is one section. 
+- Operation of `UITableView` passed to `(void)ADVSbindToTableView:adSpotId:` is guaranteed only when there is one section.
 
 <a name="infeed/custom"></a>
 ## Custom In-feed Advertisements
 
-When you need to display in a more flexible way than simple in-feed advertisements, it is possible to use the custom in-feed advertisement function. 
+When you need to display in a more flexible way than simple in-feed advertisements, it is possible to use the custom in-feed advertisement function.
 
-When implementing this, be sure to include some wording to ensure that the user recognizes and understands that the advertising area is reserved for advertisements. 
+When implementing this, be sure to include some wording to ensure that the user recognizes and understands that the advertising area is reserved for advertisements.
 
 (Example: ”PR,” ”Sponsored,” “Ad,” “Advertisement”)
 
@@ -531,7 +395,7 @@ The example in the following guide assumes the use of `UITableView`, but `UIView
 <a name="infeed/custom/load"></a>
 ### Loading Custom In-feed Advertisements
 
-The files required for In-feed advertisement loading are as follows. 
+The files required for In-feed advertisement loading are as follows.
 
 ```
 ADVSInstreamAdLoader.h
@@ -556,16 +420,16 @@ Using the abovementioned files, this is implemented in the following way:
 {
     [super viewDidLoad];
 
-    //(3) Create an instance of ADVSInstreamAdLoader  and set delegate 
+    //(3) Create an instance of ADVSInstreamAdLoader  and set delegate
     self.instreamAdLoader = [ADVSInstreamAdLoader new];
     self.instreamAdLoader.delegate = self;
 
     //(4) Call the In-feed advertisement
-    [self.instreamAdLoader loadAdWithReturn:@"NDQ0OjMx" adCount:6 positions:@[@3,@6,@9,@12,@15,@18]];
+    [self.instreamAdLoader ADVSloadAdWithReturn:@"NDQ0OjMx" adCount:6 positions:@[@3,@6,@9,@12,@15,@18]];
 }
 
 //(5) Complete In-feed advertisement loading
-- (void)instreamAdLoaderDidFinishLoadingAdWithReturn:(ADVSInstreamAdLoader *)instreamAdLoader
+- (void)ADVSinstreamAdLoaderDidFinishLoadingAdWithReturn:(ADVSInstreamAdLoader *)instreamAdLoader
                                   instreamInfoModels:(NSArray*)instreamInfoModels
 {
     //(6) Receive Instream advertising information
@@ -577,12 +441,12 @@ Using the abovementioned files, this is implemented in the following way:
 }
 ```
 
-This process allows loading of In-feed advertisements. 
+This process allows loading of In-feed advertisements.
 
 <a name="infeed/custom/display"></a>
 ### Displaying Custom In-feed advertisements
 
-The advertisement is displayed based on the information extracted from `ADVSInstreamInfoModel.h`. The `position` is used to analyze the results of the advertising; therefore, choose a position on the screen and use this as the reference point.  
+The advertisement is displayed based on the information extracted from `ADVSInstreamInfoModel.h`. The `position` is used to analyze the results of the advertising; therefore, choose a position on the screen and use this as the reference point.
 
 ```objc
     if (infoModel.title) {
@@ -599,13 +463,13 @@ The advertisement is displayed based on the information extracted from `ADVSInst
         self.adIndicatorLabel.text = @"PR";
     }
 
-    [infoModel loadIconImage:self.adIconImageView completion:^(NSError *iconImageLoadError) {
-        [infoModel loadImage:self.adImageView completion:^(NSError *imageLoadError) {
+    [infoModel ADVSloadIconImage:self.adIconImageView completion:^(NSError *iconImageLoadError) {
+        [infoModel ADVSloadImage:self.adImageView completion:^(NSError *imageLoadError) {
             if (iconImageLoadError || imageLoadError) {
                 NSLog(@"error");
             } else {
                 NSLog(@"ok, start sending an impression log");
-                 [self.instreamAdLoader measureImp:infoModel];
+                [self.instreamAdLoader ADVSmeasureImp:infoModel];
             }
         }];
     }];
@@ -614,20 +478,20 @@ The advertisement is displayed based on the information extracted from `ADVSInst
 <a name="infeed/custom/imp"></a>
 ### Custom In-feed Advertisement Impression Notifications
 
-When display of the advertisement is complete, notify the impression. Call `measureImp:` from `ADVSInstreamAdLoader.h`.
+When display of the advertisement is complete, notify the impression. Call `ADVSmeasureImp:` from `ADVSInstreamAdLoader.h`.
 
 <a name="infeed/custom/click"></a>
 ### Transition Processing when Clicking Custom In-feed Advertisements
 
-By using the following method, when an advertisement is clicked, the user can be appropriately transitioned. Call sendClickEvent `ADVSInstreamAdLoader.h` from `sendClickEvent:`
+By using the following method, when an advertisement is clicked, the user can be appropriately transitioned. Call sendClickEvent `ADVSInstreamAdLoader.h` from `ADVSsendClickEvent:`
 
 <a name="infeed/custom/event"></a>
 ### Loading of Custom In-feed Advertisements and Event Acquisition during Notifications
 
-When loading In-feed advertisements and performing notifications, there are times when you want to receive those events. 
+When loading In-feed advertisements and performing notifications, there are times when you want to receive those events.
 
-In this case, `ADVSInterstitialAdLoader` is set to `ADVSInterstitialAdLoaderDelegate`. 
-Delegate is an `ADVSInterstitialAdLoader` property allowing the event to be received. 
+In this case, `ADVSInterstitialAdLoader` is set to `ADVSInterstitialAdLoaderDelegate`.
+Delegate is an `ADVSInterstitialAdLoader` property allowing the event to be received.
 
 ```objc
 - (void)viewDidLoad
@@ -637,38 +501,38 @@ Delegate is an `ADVSInterstitialAdLoader` property allowing the event to be rece
 }
 
 //(2) When loading of advertisements begins
-- (void)instreamAdLoaderDidStartLoadingAd:(ADVSInstreamAdLoader *)instreamAdLoader
+- (void)ADVSinstreamAdLoaderDidStartLoadingAd:(ADVSInstreamAdLoader *)instreamAdLoader
 {
 }
 
 //(3) When loading of advertisements  is complete
-- (void)instreamAdLoaderDidFinishLoadingAdWithReturn:(ADVSInstreamAdLoader *)instreamAdLoader
+- (void)ADVSinstreamAdLoaderDidFinishLoadingAdWithReturn:(ADVSInstreamAdLoader *)instreamAdLoader
                                   instreamInfoModels:(NSArray*)instreamInfoModels
 {
 }
 
 //(4) When advertising impression notification is complete
-- (void)instreamAdLoaderDidFinishSendingAdImp
+- (void)ADVSinstreamAdLoaderDidFinishSendingAdImp
 {
 }
 
 //(5) When advertising click processing is complete
-- (void)instreamAdLoaderDidFinishSendingAdClick
+- (void)ADVSinstreamAdLoaderDidFinishSendingAdClick
 {
 }
 
 //(6) When advertisement loading fails
-- (void)instreamAdLoader:(ADVSInstreamAdLoader *)instreamAdLoader didFailToLoadAdWithError:(NSError *)error
+- (void)ADVSinstreamAdLoader:(ADVSInstreamAdLoader *)instreamAdLoader didFailToLoadAdWithError:(NSError *)error
 {
 }
 
 //(7) When advertisement impression notification fails
-- (void)instreamAdLoader:(ADVSInstreamAdLoader *)instreamAdLoader didFailToSendImpWithError:(NSError *)error
+- (void)ADVSinstreamAdLoader:(ADVSInstreamAdLoader *)instreamAdLoader didFailToSendImpWithError:(NSError *)error
 {
 }
 
 //(8)When advertising click processing fails
-- (void)instreamAdLoader:(ADVSInstreamAdLoader *)instreamAdLoader didFailToSendClickWithError:(NSError *)error
+- (void)ADVSinstreamAdLoader:(ADVSInstreamAdLoader *)instreamAdLoader didFailToSendClickWithError:(NSError *)error
 {
 }
 ```
@@ -678,27 +542,27 @@ Delegate is an `ADVSInterstitialAdLoader` property allowing the event to be rece
 
 Reference with `ADVSInstreamInfoModel.h`.
 
-| Parameter name | Explanation | Example | 
+| Parameter name | Explanation | Example |
 | --- | --- | --- |
-| title | Title wording (20 full-size characters or less) | `TestAd` | 
-| content | explanation/introductory statement (40–70 full-size characters or less ) | `text advertisement.` | 
-| position | Relative position of advertisement | `3 `| 
-| displayedAdvertiser | Cover advertising main name | `Beverage company A` | 
-| iconImageURL | Icon-type square image (114 × 114 pixel fixed)resource | NSURL object | 
-| mainImageURL | Banner-type rectangular image (size can be changed for each advertisement | framework ID) resource | NSURL  object | 
+| title | Title wording (20 full-size characters or less) | `TestAd` |
+| content | explanation/introductory statement (40–70 full-size characters or less ) | `text advertisement.` |
+| position | Relative position of advertisement | `3 `|
+| displayedAdvertiser | Cover advertising main name | `Beverage company A` |
+| iconImageURL | Icon-type square image (114 × 114 pixel fixed)resource | NSURL object |
+| mainImageURL | Banner-type rectangular image (size can be changed for each advertisement | framework ID) resource | NSURL  object |
 
-- The icon-type square image and banner-type rectangular image can be obtained using the following method.  We recommend using this method as the image is cached internally. 
+- The icon-type square image and banner-type rectangular image can be obtained using the following method.  We recommend using this method as the image is cached internally.
 
- - `- (void)loadIconImage:(UIImageView*)iconImageView completion:(void (^)(NSError *error)) completion;`
- - `- (void)loadImage:(UIImageView*)imageView completion:(void (^)(NSError *error)) completion;`
-- Please note that the `explanation` and `introductory` test is a `content` property,  not an NSObject  [description](https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/Classes/NSObject_Class/index.html#//apple_ref/occ/clm/NSObject/description). 
+ - `- (void)ADVSloadIconImage:(UIImageView*)iconImageView completion:(void (^)(NSError *error)) completion;`
+ - `- (void)ADVSloadImage:(UIImageView*)imageView completion:(void (^)(NSError *error)) completion;`
+- Please note that the `explanation` and `introductory` test is a `content` property,  not an NSObject  [description](https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/Classes/NSObject_Class/index.html#//apple_ref/occ/clm/NSObject/description).
 
 <a name="infeed/custom/format"></a>
 ### Optional Use of the Advertising Formats Provided as Defaults by SDK
 At present, there are seven advertising formats that can be freely used. These are subclasses of the `UITableViewCell`.
 
 ```
-The files required for the default advertisement format. 
+The files required for the default advertisement format.
 Choose the format from:
 ADVSInstreamAdCellThumbnailMiddle.h
 ADVSInstreamAdCellThumbnailSmall.h
@@ -709,9 +573,9 @@ ADVSInstreamAdCellTextOnly.h
 ADVSInstreamAdCellWebView.h
 ```
 
-The formats from [simple in-feed advertisements](### Simple In-feed Advertisement Format) can be used. 
+The formats from [simple in-feed advertisements](### Simple In-feed Advertisement Format) can be used.
 
-This is implemented in the following way using the above files, and the default advertising format is displayed. 
+This is implemented in the following way using the above files, and the default advertising format is displayed.
 
 ```objc
 //(1) Import the header you wish to use
@@ -738,7 +602,7 @@ This is implemented in the following way using the above files, and the default 
         [cell updateCell:adItem completion:^(NSError *error) {
 
             //(5) Once the drawing is complete, send the impression log
-            [self.instreamAdLoader measureImp:adItem];
+            [self.instreamAdLoader ADVSmeasureImp:adItem];
         }];
 
         return cell;
