@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "ADVSInstreamAdCellProtocol.h"
+#import "ADVSExceptionDelegate.h"
 
 @class ADVSInstreamWebViewInfoModel;
 
@@ -16,7 +17,7 @@
  */
 
 @interface ADVSInstreamAdCellWebView : UITableViewCell<ADVSInstreamAdCellInternalProtocol>
-
+@property(nonatomic, weak) id<ADVSExceptionDelegate> exceptionDelegate;
 - (void)ADVSupdateCell:(ADVSInstreamWebViewInfoModel*)infoModel completion:(void (^)(NSError *error)) completion;
 
 @end

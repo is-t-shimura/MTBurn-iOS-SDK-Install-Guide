@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ADVSExceptionDelegate.h"
 
 @class ADVSInstreamInfoModel;
 
@@ -24,6 +25,8 @@
  */
 
 @protocol ADVSInstreamAdCellProtocol <ADVSInstreamAdCellInternalProtocol>
+
+@property(nonatomic, weak) id<ADVSExceptionDelegate> exceptionDelegate;
 
 /**
  required height for the advertisement cell format to be displayed

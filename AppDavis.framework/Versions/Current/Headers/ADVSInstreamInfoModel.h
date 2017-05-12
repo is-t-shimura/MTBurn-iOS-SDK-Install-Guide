@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ADVSExceptionDelegate.h"
 
 #ifndef ADVS_INSTREAMINFO_PROTOCOL_H
 #define ADVS_INSTREAMINFO_PROTOCOL_H
@@ -14,6 +15,7 @@
 @property (nonatomic, readonly) NSNumber *position;
 @end
 #endif
+
 
 /**
  `ADVSInstreamInfoModel` is a container to be stored instream advertisement information.
@@ -70,6 +72,19 @@
 - (void)ADVSloadIconImage:(UIImageView*)iconImageView completion:(void (^)(NSError *error)) completion;
 
 /**
+ starts loading advertisement icon image for assigning a UIImage to the iconImageView,
+ if you want to do so.
+ 
+ @param iconImageView  `UIImageView` instance to be assigned the icon image
+ @param delegate       `id<ADVSExceptionDelegate>` instance to be informed an unexpected exception
+ @param completion     callback block to inform an error. If the error is nil and loadImage:completion is also completed, invoke measureImp API.
+ 
+ @see ADVSInstreamAdLoader.h
+ */
+
+- (void)ADVSloadIconImage:(UIImageView*)iconImageView delegate:(id<ADVSExceptionDelegate>) delegate completion:(void (^)(NSError *error)) completion;
+
+/**
  starts loading advertisement main image for assigning a UIImage to the imageView,
  if you want to do so.
  
@@ -80,4 +95,17 @@
  */
 
 - (void)ADVSloadImage:(UIImageView*)imageView completion:(void (^)(NSError *error)) completion;
+
+/**
+ starts loading advertisement main image for assigning a UIImage to the imageView,
+ if you want to do so.
+ 
+ @param imageView   `UIImageView` instance to be assigned the main image
+ @param delegate       `id<ADVSExceptionDelegate>` instance to be informed an unexpected exception
+ @param completion  callback block to inform an error. If the error is nil and loadIconImage:completion is also completed, invoke measureImp API.
+ 
+ @see ADVSInstreamAdLoader.h
+ */
+
+- (void)ADVSloadImage:(UIImageView*)imageView delegate:(id<ADVSExceptionDelegate>) delegate completion:(void (^)(NSError *error)) completion;
 @end

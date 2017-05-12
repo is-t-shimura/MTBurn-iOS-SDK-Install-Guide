@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "ADVSInstreamAdCellProtocol.h"
+#import "ADVSExceptionDelegate.h"
 
 @class ADVSInstreamInfoModel;
 
@@ -16,6 +17,7 @@
  */
 
 @interface ADVSInstreamAdCellThumbnailMiddle : UITableViewCell<ADVSInstreamAdCellProtocol>
+@property(nonatomic, weak) id<ADVSExceptionDelegate> exceptionDelegate;
 + (CGFloat)ADVSheightForCell;
 - (void)ADVSupdateCell:(ADVSInstreamInfoModel*)infoModel completion:(void (^)(NSError *error)) completion;
 @end

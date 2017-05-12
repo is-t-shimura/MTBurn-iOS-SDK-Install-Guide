@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "ADVSExceptionDelegate.h"
 
 /**
  `AppDavis` is entry point class for starting using AppDavis.framework.
@@ -33,5 +34,9 @@
 + (void)ADVSinitMedia:(NSString *)mediaId;
 
 + (void)ADVSinitMedia:(NSString *)mediaId params:(NSDictionary*)params;
+
++ (void)ADVSinitMedia:(NSString *)mediaId delegate:(id<ADVSExceptionDelegate>)delegate;
+
++ (void)ADVSinitMedia:(NSString *)mediaId params:(NSDictionary*)params delegate:(id<ADVSExceptionDelegate>)delegate;
 
 @end

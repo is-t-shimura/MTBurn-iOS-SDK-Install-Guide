@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ADVSExceptionDelegate.h"
 
 #ifndef ADVS_INSTREAMINFO_PROTOCOL_H
 #define ADVS_INSTREAMINFO_PROTOCOL_H
