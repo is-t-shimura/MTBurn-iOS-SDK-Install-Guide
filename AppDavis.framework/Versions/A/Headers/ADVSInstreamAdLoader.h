@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "ADVSInstreamAdLoaderDelegate.h"
+#import "ADVSExceptionDelegate.h"
 
 @protocol ADVSInstreamInfoProtocol;
 
@@ -39,6 +40,13 @@
  @see ADVSInstreamAdLoaderDelegate.h
  */
 @property(nonatomic, weak) id<ADVSInstreamAdLoaderDelegate> delegate;
+
+/**
+ This delegate tells an exception.
+ 
+ @see ADVSExceptionDelegate.h
+ */
+@property(nonatomic, weak) id<ADVSExceptionDelegate> exceptionDelegate;
 
 /**
  binds this loader to your table view.
@@ -75,7 +83,7 @@
  @param adCount   advertisement information count to be received in the callback. If 0 is given, registered is selected.
  @param positions each position to be added into `ADVSInstreamInfoModel` in order to control ad position. If nil is given, registered is selected.
  
- ex. [self.instreamAdLoader loadAdWithReturn:6 adCount:5 positions:@[@3,@6,@9,@12,@15]];
+ ex. [self.instreamAdLoader ADVSloadAdWithReturn:6 adCount:5 positions:@[@3,@6,@9,@12,@15]];
  */
 
 - (void)ADVSloadAdWithReturn:(NSString *)adSpotId adCount:(NSUInteger)adCount positions:(NSArray*)positions;
@@ -83,7 +91,7 @@
 /**
  send an impression record to log advertising performance.
 
- @param instreamInfoModel advertisement information model to be received in loadAd:adCount:positions
+ @param instreamInfoModel advertisement information model to be received in ADVSloadAd:adCount:positions
  */
 
 - (void)ADVSmeasureImp:(id<ADVSInstreamInfoProtocol>)instreamInfoProtocol;
@@ -91,7 +99,7 @@
 /**
  send an click record to log advertising performance.
  
- @param instreamInfoModel advertisement information model to be received in loadAd:adCount:positions
+ @param instreamInfoModel advertisement information model to be received in ADVSloadAd:adCount:positions
  */
 
 - (void)ADVSsendClickEvent:(id<ADVSInstreamInfoProtocol>)instreamInfoProtocol;

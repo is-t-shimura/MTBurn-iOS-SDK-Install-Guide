@@ -78,7 +78,11 @@
 		
 		<option value="//api/name/ADVSloadIconImage:completion:">- ADVSloadIconImage:completion:</option>
 		
+		<option value="//api/name/ADVSloadIconImage:delegate:completion:">- ADVSloadIconImage:delegate:completion:</option>
+		
 		<option value="//api/name/ADVSloadImage:completion:">- ADVSloadImage:completion:</option>
+		
+		<option value="//api/name/ADVSloadImage:delegate:completion:">- ADVSloadImage:delegate:completion:</option>
 		
 	</optgroup>
 	
@@ -495,6 +499,85 @@ if you want to do so.</p>
 		</div>
 	</div>
 </div><div class="section-method">
+	<a name="//api/name/ADVSloadIconImage:delegate:completion:" title="ADVSloadIconImage:delegate:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/ADVSloadIconImage:delegate:completion:">&ndash;&nbsp;ADVSloadIconImage:delegate:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>starts loading advertisement icon image for assigning a UIImage to the iconImageView,
+if you want to do so.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)ADVSloadIconImage:(UIImageView *)<em>iconImageView</em> delegate:(id&lt;ADVSExceptionDelegate&gt;)<em>delegate</em> completion:(void ( ^ ) ( NSError *error ))<em>completion</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>iconImageView</code></th>
+						<td><p><code>UIImageView</code> instance to be assigned the icon image</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>delegate</code></th>
+						<td><p><code>id</code>ADVSExceptionDelegate<code></code> instance to be informed an unexpected exception</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completion</code></th>
+						<td><p>callback block to inform an error. If the error is nil and loadImage:completion is also completed, invoke measureImp API.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>starts loading advertisement icon image for assigning a UIImage to the iconImageView,
+if you want to do so.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/ADVSInstreamAdLoader.html">ADVSInstreamAdLoader</a>.h</p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ADVSInstreamInfoModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
+</div><div class="section-method">
 	<a name="//api/name/ADVSloadImage:completion:" title="ADVSloadImage:completion:"></a>
 	<h3 class="method-title"><code><a href="#//api/name/ADVSloadImage:completion:">&ndash;&nbsp;ADVSloadImage:completion:</a></code>
 </h3>
@@ -568,6 +651,85 @@ if you want to do so.</p>
 			
 		</div>
 	</div>
+</div><div class="section-method">
+	<a name="//api/name/ADVSloadImage:delegate:completion:" title="ADVSloadImage:delegate:completion:"></a>
+	<h3 class="method-title"><code><a href="#//api/name/ADVSloadImage:delegate:completion:">&ndash;&nbsp;ADVSloadImage:delegate:completion:</a></code>
+</h3>
+
+	<div class="method-info">
+		<div class="pointy-thing"></div>
+
+		<div class="method-info-container">
+			
+			
+			<div class="method-subsection brief-description">
+				<p>starts loading advertisement main image for assigning a UIImage to the imageView,
+if you want to do so.</p>
+			</div>
+			
+		    
+
+			<div class="method-subsection method-declaration"><code>- (void)ADVSloadImage:(UIImageView *)<em>imageView</em> delegate:(id&lt;ADVSExceptionDelegate&gt;)<em>delegate</em> completion:(void ( ^ ) ( NSError *error ))<em>completion</em></code></div>
+
+		    
+			
+			<div class="method-subsection arguments-section parameters">
+				<h4 class="method-subtitle parameter-title">Parameters</h4>
+				<table class="argument-def parameter-def">
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>imageView</code></th>
+						<td><p><code>UIImageView</code> instance to be assigned the main image</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>delegate</code></th>
+						<td><p><code>id</code>ADVSExceptionDelegate<code></code> instance to be informed an unexpected exception</p></td>
+					</tr>
+				
+					<tr>
+						<th scope="row" class="argument-name"><code>completion</code></th>
+						<td><p>callback block to inform an error. If the error is nil and loadIconImage:completion is also completed, invoke measureImp API.</p></td>
+					</tr>
+				
+				</table>
+			</div>
+			
+
+			
+
+			
+
+			
+			<div class="method-subsection discussion-section">
+				<h4 class="method-subtitle">Discussion</h4>
+				<p>starts loading advertisement main image for assigning a UIImage to the imageView,
+if you want to do so.</p>
+			</div>
+			
+
+			
+
+			
+			<div class="method-subsection see-also-section">
+				<h4 class="method-subtitle">See Also</h4>
+				<ul>
+					
+					<li><code><p><a href="../Classes/ADVSInstreamAdLoader.html">ADVSInstreamAdLoader</a>.h</p></code></li>
+					
+				</ul>
+			</div>
+			
+
+			
+			<div class="method-subsection declared-in-section">
+				<h4 class="method-subtitle">Declared In</h4>
+				<p><code class="declared-in-ref">ADVSInstreamInfoModel.h</code></p>
+			</div>
+			
+			
+		</div>
+	</div>
 </div>
 						</div>
 						
@@ -583,7 +745,7 @@ if you want to do so.</p>
 				<footer>
 					<div class="footer-copyright">
 						
-						<p class="copyright">Copyright &copy; 2016 MTBurn. All rights reserved. Updated: 2016-09-13</p>
+						<p class="copyright">Copyright &copy; 2017 MTBurn. All rights reserved. Updated: 2017-05-12</p>
 						
 						
 						<p class="generator">Generated by <a href="http://appledoc.gentlebytes.com">appledoc 2.2.1 (build 1334)</a>.</p>

@@ -14,7 +14,8 @@
 #import "ADVSSmartAppArticleModel.h"
 #import "MNMBottomPullToRefreshManager.h"
 
-@interface ADVSSmartAppViewController () <ADVSInstreamAdLoaderDelegate, MNMBottomPullToRefreshManagerClient,NSXMLParserDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface ADVSSmartAppViewController () <ADVSInstreamAdLoaderDelegate, ADVSExceptionDelegate,
+    MNMBottomPullToRefreshManagerClient,NSXMLParserDelegate, UITableViewDataSource, UITableViewDelegate>
 @property(nonatomic, strong) ADVSInstreamAdLoader *instreamAdLoader;
 @property(nonatomic, strong) NSMutableArray *items;
 @property(nonatomic, strong) ADVSSmartAppArticleModel *item;
@@ -61,6 +62,7 @@
 {
     self.instreamAdLoader = [ADVSInstreamAdLoader new];
     self.instreamAdLoader.delegate = self;
+    self.instreamAdLoader.exceptionDelegate = self;
     [self.instreamAdLoader ADVSbindToTableView:self.tableView adSpotId:_confDict[@"adSpotId"]];
 }
 
@@ -160,6 +162,13 @@
 - (void)ADVSinstreamAdLoader:(NSIndexPath *)adIndexPath didFailToLoadAdImageWithError:(NSError *)error
 {
     NSLog(@"ADVSinstreamAdLoaderDidFailToLoadAdImage:row=%d:section=%d:error=%@", (int)adIndexPath.row, (int)adIndexPath.section, error);
+}
+
+#pragma mark - ADVSExceptionDelegate
+
+- (void)ADVSexceptionOccured:(NSError *)error
+{
+    NSLog(@"ADVSexceptionOccured:%@", error);
 }
 
 # pragma mark - MNMBottomPullToRefreshManager

@@ -31,20 +31,4 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Button Action
-
-- (IBAction)interstitialButtonTapped:(id)sender
-{
-    // if you want to display interstitial ad when the button tapped, delete this comment out and edit storyboard
-    //[self.interstitialAdLoader loadRequest];
-}
-
-#pragma mark - Private
-
-- (NSString *)interstitialAdSpotId
-{
-    ADVSAppDelegate *delegate = (ADVSAppDelegate *) [[UIApplication sharedApplication] delegate];
-    return [delegate adspotIdDict][@"interstitial"];
-}
-
 @end

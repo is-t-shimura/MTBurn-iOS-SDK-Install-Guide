@@ -11,11 +11,14 @@
 
 static int media_id = 2;
 
+@interface ADVSAppDelegate () <ADVSExceptionDelegate>
+@end
+
 @implementation ADVSAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    [AppDavis ADVSinitMedia:[NSString stringWithFormat:@"%d", media_id]];
+    [AppDavis ADVSinitMedia:[NSString stringWithFormat:@"%d", media_id] delegate:self];
     return YES;
 }
 
@@ -28,13 +31,13 @@ static int media_id = 2;
         default:
         case 1:
             return @{@"instream": @[@"NDgzOjE", @"Njc4OjI", @"NzA3OjM", @"MTY5OjQ", @"OTMzOjU", @"MzUxOjk", @"OTgxOjUy", @"MjQxOjUz", @"NjA0OjU0"],
-                     @"custom_instream": @[@"NDgzOjE", @"NzA3OjM", @"MTY5OjQ", @"OTgxOjUy", @"MjQxOjUz", @"NjA0OjU0"],
-                     @"interstitial": @"OTM0OjQ1Nw"};
+                     @"custom_instream": @[@"NDgzOjE", @"NzA3OjM", @"MTY5OjQ", @"OTgxOjUy", @"MjQxOjUz", @"NjA0OjU0"]
+                     };
             break;
         case 2:
             return @{@"instream": @[@"NDQ0OjMx", @"OTA2OjMy", @"ODEzOjMz", @"OTIyOjM0", @"NzA2OjM1", @"MzA3OjM2", @"MTI2OjU1", @"OTkzOjU2", @"MzEzOjU3"],
-                     @"custom_instream": @[@"NDQ0OjMx", @"ODEzOjMz", @"OTIyOjM0", @"MTI2OjU1", @"OTkzOjU2", @"MzEzOjU3"],
-                     @"interstitial": @"OTM0OjQ2MQ"};
+                     @"custom_instream": @[@"NDQ0OjMx", @"ODEzOjMz", @"OTIyOjM0", @"MTI2OjU1", @"OTkzOjU2", @"MzEzOjU3"]
+                     };
             break;
     }
 }
@@ -64,6 +67,13 @@ static int media_id = 2;
 - (void)applicationWillTerminate:(UIApplication *)application
 {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+#pragma mark - ADVSExceptionDelegate
+
+- (void)ADVSexceptionOccured:(NSError *)error
+{
+    NSLog(@"ADVSexceptionOccured:%@", error);
 }
 
 @end

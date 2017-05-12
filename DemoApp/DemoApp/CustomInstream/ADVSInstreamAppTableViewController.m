@@ -16,7 +16,8 @@
 #import "ADVSInstreamAppArticleTableViewCell.h"
 #import "ADVSAppDelegate.h"
 
-@interface ADVSInstreamAppTableViewController () <ADVSInstreamAdLoaderDelegate, NSXMLParserDelegate, UITableViewDataSource, UITableViewDelegate>
+@interface ADVSInstreamAppTableViewController () <ADVSInstreamAdLoaderDelegate, ADVSExceptionDelegate,
+    NSXMLParserDelegate, UITableViewDataSource, UITableViewDelegate>
 @property(nonatomic, strong) ADVSInstreamAdLoader *instreamAdLoader;
 @property(nonatomic, strong) NSMutableArray *items;
 @property(nonatomic, strong) ADVSSmartAppArticleModel *item;
@@ -35,6 +36,7 @@
     
     self.instreamAdLoader = [ADVSInstreamAdLoader new];
     self.instreamAdLoader.delegate = self;
+    self.instreamAdLoader.exceptionDelegate = self;
     
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([ADVSInstreamAppArticleTableViewCell class]) bundle:nil]
          forCellReuseIdentifier:@"ADVSInstreamAppArticleTableViewCell"];
@@ -84,6 +86,7 @@
 {
     UITableViewCell<ADVSInstreamAdCellProtocol> *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass(_adCellClass)
                                                                                         forIndexPath:indexPath];
+    cell.exceptionDelegate = self;
     
     id item = _items[indexPath.row];
     
@@ -190,6 +193,13 @@
 - (void)ADVSinstreamAdLoader:(ADVSInstreamAdLoader *)instreamAdLoader didFailToSendClickWithError:(NSError *)error
 {
     NSLog(@"ADVSinstreamAdLoader:didFailToSendClickWithError:%@", error);
+}
+
+#pragma mark - ADVSExceptionDelegate
+
+- (void)ADVSexceptionOccured:(NSError *)error
+{
+    NSLog(@"ADVSexceptionOccured:%@", error);
 }
 
 #pragma mark - NSXMLParserDelegate
