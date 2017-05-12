@@ -11,7 +11,8 @@
 #import "ADVSAppDelegate.h"
 #import "MNMBottomPullToRefreshManager.h"
 
-@interface ADVSSimpleTableViewController () <UITableViewDataSource, UITableViewDelegate, MNMBottomPullToRefreshManagerClient, ADVSInstreamAdLoaderDelegate>
+@interface ADVSSimpleTableViewController () <UITableViewDataSource, UITableViewDelegate, MNMBottomPullToRefreshManagerClient,
+    ADVSInstreamAdLoaderDelegate, ADVSExceptionDelegate>
 @property(nonatomic, strong) NSArray *dataSource;
 @property(nonatomic, strong) ADVSInstreamAdLoader *instreamAdLoader;
 @property(nonatomic, strong) MNMBottomPullToRefreshManager* refreshManager;
@@ -30,6 +31,7 @@
     self.instreamAdLoader = [ADVSInstreamAdLoader new];
     
     self.instreamAdLoader.delegate = self;
+    self.instreamAdLoader.exceptionDelegate = self;
     [self.instreamAdLoader ADVSbindToTableView:self.tableView adSpotId:[self getAdSpotId]];
     [self.instreamAdLoader ADVSloadAd:2 positions:@[@1,@4]];
     
@@ -140,6 +142,13 @@
 - (void)ADVSinstreamAdLoader:(NSIndexPath *)adIndexPath didFailToLoadAdImageWithError:(NSError *)error
 {
     NSLog(@"ADVSinstreamAdLoaderDidFailToLoadAdImage:row=%d:section=%d:error=%@", (int)adIndexPath.row, (int)adIndexPath.section, error);
+}
+
+#pragma mark - ADVSExceptionDelegate
+
+- (void)ADVSexceptionOccured:(NSError *)error
+{
+    NSLog(@"ADVSexceptionOccured:%@", error);
 }
 
 @end
