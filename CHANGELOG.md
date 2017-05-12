@@ -1,5 +1,12 @@
 # Change Log
 
+## [v3.1.0](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/tree/v3.1.0) (2017-05-12)
+[Full Changelog](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/compare/v3.0.0...v3.1.0)
+
+**Merged pull requests:**
+
+- Updated v3.1.0 [\#25](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/pull/25) ([yoheimuta](https://github.com/yoheimuta))
+
 ## [v3.0.0](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/tree/v3.0.0) (2016-09-13)
 [Full Changelog](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/compare/v2.1.2...v3.0.0)
 
@@ -103,7 +110,7 @@
 
 **Merged pull requests:**
 
-- 広告SDKのpodspecを追加 [\#2](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/pull/2) ([keqh](https://github.com/keqh))
+- 広告SDKのpodspecを追加 [\#2](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/pull/2) ([kei-q](https://github.com/kei-q))
 
 
 
