@@ -1,4 +1,4 @@
-#目次
+# 目次
 
 * [問い合わせの仕方](#howto)
 * [端末からどのような情報を取得していますか？](#info)
@@ -10,18 +10,19 @@
 * [バージョン番号はどういう意味がありますか？](#version)
 * [他社SDKとの競合の解決](#race)
 * [iOS9 ATS 対応](#ats)
+* [SDK 内部の例外発生時の捕捉](#exception)
 
 <a name="howto"></a>
-#問い合わせの仕方
+# 問い合わせの仕方
 
-###問い合わせ先
+### 問い合わせ先
 
 - [issues](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/issues) を活用ください
 - 何らかの理由により、`issues` による問い合わせが難しい場合には、担当者を介して問い合わせください
  - その場合も問い合わせ先以外の仕方はこの項を参考にしてください
 
 <a name="info"></a>
-#端末からどのような情報を取得していますか？
+# 端末からどのような情報を取得していますか？
 
 - 次の情報を取得しています
 
@@ -35,7 +36,7 @@
 | 国コード | `NSLocale NSLocaleCountryCode` | `JP`, `US` など |
 
 <a name="ios6"></a>
-#iOS6.0未満の端末においてクラッシュする問題への対応
+# iOS6.0未満の端末においてクラッシュする問題への対応
 
 当該SDKの対応OSは6.0以上のため、6.0未満の端末において広告を表示することはできません。
 
@@ -51,28 +52,28 @@ if (NSFoundationVersionNumber_iOS_6_0 <= floor(NSFoundationVersionNumber)) {
 - デベロッパーアプリ内でリンクしている、AdSupportとFoundationをoptionalにする
 
 <a name="instream"></a>
-#コード中にあるInstreamはどういう意味ですか
+# コード中にあるInstreamはどういう意味ですか
 
 このガイド中にある、`インフィード` `In-Feed` と同じ意味で用いられています
 
 <a name="function"></a>
-#〇〇の機能はありますか？
+# 〇〇の機能はありますか？
 
 [Headers](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/tree/master/AppDavis.framework/Headers) または [API 仕様ページ](http://mtburn.github.io/MTBurn-iOS-SDK-Install-Guide/appledoc/latest/) に public API がまとめられています
 
 <a name="sample"></a>
-#サンプルプロジェクトはありますか？
+# サンプルプロジェクトはありますか？
 [DemoApp](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/tree/master/DemoApp) を参考にしてください
 
 <a name="not_found_ad"></a>
-#広告の表示に問題がある（表示されない、重複するなど）
+# 広告の表示に問題がある（表示されない、重複するなど）
 
 次の順番でおおまかな原因の特定が可能です。それぞれに対する対応方法も示します。
 
 1. アカウントに問題がある
 2. アプリの呼び出し方法に問題がある
 
-###アカウントに問題がある
+### アカウントに問題がある
 
 ここでいう`アカウント`とは `媒体 ID (media_id)` とそれに紐づく `広告枠 ID (adspot_id)` を指します。
 
@@ -95,7 +96,7 @@ if (NSFoundationVersionNumber_iOS_6_0 <= floor(NSFoundationVersionNumber)) {
 | MjQxOjUz | OTkzOjU2 | 640x200 pixel | WebView（中） |
 | NjA0OjU0 | MzEzOjU3 | 640x320 pixel | WebView（大） |
 
-###アプリの呼び出し方法に問題がある
+### アプリの呼び出し方法に問題がある
 
 `発行していただいたアカウント`、`本番の広告を表示するテストアカウント`、`テストの広告を表示するテストアカウント`の 3 つを試しても表示の問題が解消されない場合には、`アカウント` 関係に問題があるのか、アプリまたは SDK に問題があるのかどうかを確認してもらうことをお願いしております。
 
@@ -104,25 +105,33 @@ if (NSFoundationVersionNumber_iOS_6_0 <= floor(NSFoundationVersionNumber)) {
 `アカウント`に問題がある場合には、担当者にご連絡ください。
 
 <a name="version"></a>
-#バージョン番号はどういう意味がありますか？
+# バージョン番号はどういう意味がありますか？
 [semver](http://semver.org/) に従います
 
 <a name="race"></a>
-#他社SDKとの競合の解決
+# 他社SDKとの競合の解決
 
 Hike SDK と他社広告 SDK と同時にご利用頂いた場合に競合が発生し、Hike SDK の一部の機能がご利用いただけない事例が報告されています。
 
 解決方法として、それぞれの SDK の利用タイミングに応じて、初期化処理 (Hike の場合 `initMedia` 関数) の呼び出し自体を出し分けてしまうことで、衝突の回避ができることがあります。
 
-### 現在までに確認された競合の問題とその解消策
+g現在までに確認された競合の問題とその解消策
 
 `i-mobile ios sdk 1.30 以前` と競合が発生することを確認しています
 
 - バージョンアップすることで解消することを合わせて確認しております
 
 <a name="ats"></a>
-#iOS9 ATS 対応
+# iOS9 ATS 対応
 
 SDK のバージョンは v2.0.1 以降を使う必要があります
 
 アプリ側で別途 ATS 無効化を行う必要はありません
+
+<a name="exception"></a>
+# SDK 内部の例外発生時の捕捉
+
+v3.1.0 より ADVSExceptionDelegate を使って SDK 内部で発生した例外を NSError として、アプリ側で受け取れます。
+使い方はそれぞれのヘッダーファイルと `DemoApp` を参照してください。
+
+- 注意: アプリ側で対応しなくても、例外によってクラッシュすることは可能な限り起こさないようにはなっています

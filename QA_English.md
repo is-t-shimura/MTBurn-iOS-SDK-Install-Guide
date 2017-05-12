@@ -10,6 +10,7 @@
 * [What does the Version Number Mean?](#version)
 * [Resolving Conflicts with the SDK of Other Companies](#race)
 * [iOS9 ATS  Support](#ats)
+* [SDK Exception Handling](#exception)
 
 <a name="howto"></a>
 # How to Make Inquiries
@@ -120,3 +121,11 @@ We have confirmed that conflicts occur prior to `i-mobile ios sdk 1.30`
 The SDK version must be v2.0.1 or greater.
 
 It is not necessary to disable ATS separately on the application side.
+
+<a name="exception"></a>
+# SDK Exception Handling
+
+From v3.1.0, if exceptions generated inside the SDK occurs, you can receive information as NSError using ADVSExceptionDelegate on the application side.
+See each header files and `DemoApp` for usage.
+
+- Note: Even if the application does not deal with it, it is designed not to cause crashes by exception as much as possible
