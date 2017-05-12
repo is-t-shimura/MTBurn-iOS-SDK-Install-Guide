@@ -1,4 +1,4 @@
-#目次
+# 目次
 
 * [まずはじめに](#start)
     * [Media Id の取得](#start/media_id)
@@ -22,26 +22,26 @@
 * [更新履歴](#update)
 
 <a name="start"></a>
-#まずはじめに
+# まずはじめに
 
 本ガイドは SDK の使い方の概略を示したものです。
 
 詳細な API 仕様などについては、framework内の各ヘッダーファイルのコメントも参照ください。
 
 <a name="start/media_id"></a>
-##Media Id の取得
+## Media Id の取得
 
 管理画面より登録し、Media Id を発行します。
 
 この Media Id はアプリの識別に用いるものですので、忘れない様にして下さい。
 
-###テスト用 ID
+### テスト用 ID
 
 テスト用の Media Id 1 をご利用いただくことができます。ダミーデータが表示され、動作確認が可能です。
 インターステイシャル広告以外では、Media Id 2 を使うこともできます。本番データが表示されるので、見た目の確認に使えます。
 
 <a name="start/init"></a>
-##コード内初期化
+## コード内初期化
 
 上記で取得した media_id を引数に、 AppDavis を初期化します。
 
@@ -67,7 +67,7 @@
 この**初期化を行わない限り、後述する広告の取得全般を行う事ができません**ので注意して下さい。
 
 <a name="infeed"></a>
-#インフィード広告
+# インフィード広告
 
 <a name="infeed/adspot_id"></a>
 ## 広告枠IDの取得
@@ -176,14 +176,14 @@ height:230
 **現在は、新規広告枠の登録設定については担当者へお問い合わせください。**
 
 <a name="infeed/simple"></a>
-##簡易版インフィード広告
+## 簡易版インフィード広告
 
 簡易版インフィード広告は`UITableView`の利用を前提としています。
 
 それ以外での利用については、後述するカスタムインフィード広告を参照してください。
 
 <a name="infeed/simple/display"></a>
-###簡易版インフィード広告の表示
+### 簡易版インフィード広告の表示
 In-Feed広告の表示に必要なファイルは以下です。
 
 ```
@@ -230,7 +230,7 @@ ADVSInstreamAdLoader.h
 1リクエストあたりの広告案件数と広告位置配列は、`[self.instreamAdLoader ADVSloadAd:6 positions:@[@2,@4,@6,@8,@10,@12]];`などのAPIを使ってコントロールすることも出来ます。
 
 <a name="infeed/simple/event"></a>
-###簡易版インフィード広告の表示時のイベント取得
+### 簡易版インフィード広告の表示時のイベント取得
 In-Feed広告の表示をする際に、そのイベントを受け取りたい場合があります。
 
 その場合は `ADVSInstreamAdLoader ` のプロパティである delegate が、`ADVSInstreamAdLoaderDelegate` に準拠しているので、それ経由で受信する事が出来ます。
@@ -275,7 +275,7 @@ In-Feed広告の表示をする際に、そのイベントを受け取りたい�
 ```
 
 <a name="infeed/simple/additional_load"></a>
-###簡易版インフィード広告の追加ロード
+### 簡易版インフィード広告の追加ロード
 ユーザーがサイト下部に到達した際に追加フィードを読み込むような UI の場合に、追加で広告ロードを行うことも可能です。
 
 ```objc
@@ -287,7 +287,7 @@ In-Feed広告の表示をする際に、そのイベントを受け取りたい�
 ```
 
 <a name="infeed/simple/format"></a>
-###簡易版インフィード広告フォーマット
+### 簡易版インフィード広告フォーマット
 
 現状、7つの広告フォーマットを利用できます。設定は[こちら](##広告枠IDの取得)になります。
 
@@ -388,12 +388,12 @@ In-Feed広告の表示をする際に、そのイベントを受け取りたい�
 	- HTML を入稿することで、アプリ内 WebView 上で描画することが出来ます。
 
 <a name="infeed/simple/caution"></a>
-###簡易版インフィード広告を使う上での注意点
+### 簡易版インフィード広告を使う上での注意点
 
 `- (void)ADVSbindToTableView:adSpotId:`に渡す`UITableView`は、section数が1つである場合のみ動作保証されます。
 
 <a name="infeed/custom"></a>
-##カスタムインフィード広告
+## カスタムインフィード広告
 
 簡易版インフィード広告よりも柔軟な表示を行いたい場合などに、カスタム型のインフィード広告機能を利用することが出来ます。
 
@@ -405,7 +405,7 @@ In-Feed広告の表示をする際に、そのイベントを受け取りたい�
 下記のガイドでは、`UITableView`を前提とした例を示しますが、`UIView`などその他の場合でも利用が可能です。
 
 <a name="infeed/custom/load"></a>
-###カスタムインフィード広告のロード
+### カスタムインフィード広告のロード
 In-Feed広告のロードに必要なファイルは以下です。
 
 ```
@@ -457,7 +457,7 @@ ADVSInstreamInfoModel.h
 上記のように実装する事で、In-Feed広告をロードする事が出来ます。
 
 <a name="infeed/custom/display"></a>
-###カスタムインフィード広告の表示
+### カスタムインフィード広告の表示
 `ADVSInstreamInfoModel.h`から取り出した情報をもとに、広告を表示させます。`position`は、広告の成果分析に使われるため、画面内の位置を決める参考にしてください。
 
 ```objc
@@ -490,18 +490,18 @@ ADVSInstreamInfoModel.h
 ```
 
 <a name="infeed/custom/imp"></a>
-###カスタムインフィード広告のインプレッション通知
+### カスタムインフィード広告のインプレッション通知
 広告の表示が完了したら、インプレッションを通知してください。
 `ADVSInstreamAdLoader.h`の`ADVSmeasureImp:`を呼び出してください。
 
 
 <a name="infeed/custom/click"></a>
-###カスタムインフィード広告のクリック時の遷移処理
+### カスタムインフィード広告のクリック時の遷移処理
 広告がクリックされたら、以下のメソッドを呼び出すことで、適切にユーザーを遷移させることができます。
 `ADVSInstreamAdLoader.h`の`ADVSsendClickEvent:`を呼び出してください。
 
 <a name="infeed/custom/event"></a>
-###カスタムインフィード広告のロードと各種通知時のイベント取得
+### カスタムインフィード広告のロードと各種通知時のイベント取得
 In-Feed広告のロードや各種通知をする際に、そのイベントを受け取りたい場合があります。
 
 その場合は `ADVSInstreamAdLoader ` のプロパティである delegate が、`ADVSInstreamAdLoaderDelegate` に準拠しているので、それ経由で受信する事が出来ます。
@@ -552,7 +552,7 @@ In-Feed広告のロードや各種通知をする際に、そのイベントを�
 ```
 
 <a name="infeed/custom/param"></a>
-###カスタムインフィード広告パラメータ
+### カスタムインフィード広告パラメータ
 `ADVSInstreamInfoModel.h`を合わせて参照ください。
 
 | パラメータ名 | 説明 | 例 |
@@ -570,7 +570,7 @@ In-Feed広告のロードや各種通知をする際に、そのイベントを�
 - `説明・紹介文` は `content` プロパティです。NSObject の [description](https://developer.apple.com/library/mac/documentation/Cocoa/Reference/Foundation/Classes/NSObject_Class/index.html#//apple_ref/occ/clm/NSObject/description) メソッドではありません。ご注意ください。
 
 <a name="infeed/custom/format"></a>
-###SDKがデフォルトで提供する広告フォーマットの任意利用
+### SDKがデフォルトで提供する広告フォーマットの任意利用
 
 現状、7つの広告フォーマットを自由に利用できます。`UITableViewCell`のサブクラスです。
 
