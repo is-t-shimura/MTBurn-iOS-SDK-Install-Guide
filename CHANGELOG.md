@@ -1,5 +1,16 @@
 # Change Log
 
+## [v3.2.0](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/tree/v3.2.0) (2017-05-15)
+[Full Changelog](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/compare/v3.1.0...v3.2.0)
+
+**Closed issues:**
+
+- AppDavisでprivate APIが使用されている可能性がある。（リジェクト対象となります） [\#24](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/issues/24)
+
+**Merged pull requests:**
+
+- Updated v3.2.0 [\#26](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/pull/26) ([yoheimuta](https://github.com/yoheimuta))
+
 ## [v3.1.0](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/tree/v3.1.0) (2017-05-12)
 [Full Changelog](https://github.com/mtburn/MTBurn-iOS-SDK-Install-Guide/compare/v3.0.0...v3.1.0)
 
