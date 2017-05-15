@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ADVSSimpleTableViewController: UITableViewController, ADVSInstreamAdLoaderDelegate {
+class ADVSSimpleTableViewController: UITableViewController {
 
     let contents = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 
@@ -24,8 +24,8 @@ class ADVSSimpleTableViewController: UITableViewController, ADVSInstreamAdLoader
 
         // Load HIKE advertisements
         instreamAdLoader.delegate = self
-        instreamAdLoader.ADVSbindToTableView(tableView, adSpotId: adSpotId)
-        instreamAdLoader.ADVSloadAd(adCount, positions: positions)
+        instreamAdLoader.advSbind(to: tableView, adSpotId: adSpotId)
+        instreamAdLoader.advSloadAd(adCount, positions: positions)
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,40 +33,43 @@ class ADVSSimpleTableViewController: UITableViewController, ADVSInstreamAdLoader
     }
 
     // MARK: - tableView delegate methods
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return contents.count
     }
 
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "Cell")
 
         cell.textLabel?.text = contents[indexPath.row]
         return cell
     }
-    
-    // MARK: - HIKE delegate methods
-    func ADVSinstreamAdLoaderDidStartLoadingAd(instreamAdLoader: ADVSInstreamAdLoader!) {
+}
+
+extension ADVSSimpleTableViewController: ADVSInstreamAdLoaderDelegate {
+    func advSinstreamAdLoaderDidStartLoadingAd(_ instreamAdLoader: ADVSInstreamAdLoader!) {
         NSLog("ADVSinstreamAdLoaderDidStartLoadingAd")
     }
     
-    func ADVSinstreamAdLoaderDidFinishLoadingAd(instreamAdLoader: ADVSInstreamAdLoader!) {
+    func advSinstreamAdLoaderDidFinishLoadingAd(_ instreamAdLoader: ADVSInstreamAdLoader!) {
         NSLog("ADVSinstreamAdLoaderDidFinishLoadingAd")
     }
     
-    func ADVSinstreamAdLoaderDidFinishLoadingAdImage(adIndexPath: NSIndexPath!) {
+    func advSinstreamAdLoaderDidFinishLoadingAdImage(_ adIndexPath: IndexPath!) {
         NSLog("ADVSinstreamAdLoaderDidFinishLoadingAdImage:row=%d:section=%d", adIndexPath.row, adIndexPath.section)
     }
     
-    func ADVSinstreamAdLoaderDidFinishSendingAdClick() {
+    func advSinstreamAdLoaderDidFinishSendingAdClick() {
         NSLog("ADVSinstreamAdLoaderDidFinishSendingAdClick")
     }
     
-    func ADVSinstreamAdLoader(instreamAdLoader: ADVSInstreamAdLoader!, didFailToLoadAdWithError error: NSError!) {
-        NSLog("ADVSinstreamAdLoader:didFailToLoadAdWithError:%@", error)
+    @objc(ADVSinstreamAdLoader:didFailToLoadAdWithError:)
+    func advSinstreamAdLoader(_ instreamAdLoader: ADVSInstreamAdLoader!, didFailToLoadAdWithError error: Error!) {
+        NSLog("ADVSinstreamAdLoader:didFailToLoadAdWithError:%@", error as NSError)
     }
     
-    func ADVSinstreamAdLoader(adIndexPath: NSIndexPath!, didFailToLoadAdImageWithError error: NSError!) {
-        NSLog("ADVSinstreamAdLoader:didFailToLoadAdImageWithError:%@", error)
+    @objc(ADVSinstreamAdLoader:didFailToLoadAdImageWithError:)
+    func advSinstreamAdLoader(_ adIndexPath: IndexPath!, didFailToLoadAdImageWithError error: Error!) {
+        NSLog("ADVSinstreamAdLoader:didFailToLoadAdImageWithError:%@", error as NSError)
     }
 }

@@ -33,9 +33,31 @@
 
 + (void)ADVSinitMedia:(NSString *)mediaId;
 
+/**
+ Sets the given mediaId from administrator and parameters.
+ 
+ @param mediaId The number which was given by administrator.
+ @param params The dictionary which is used by sdk.
+ */
+
 + (void)ADVSinitMedia:(NSString *)mediaId params:(NSDictionary*)params;
 
+/**
+ Sets the given mediaId from administrator and delegate.
+ 
+ @param mediaId The number which was given by administrator.
+ @param delegate The delegate tells an exception.
+ */
+
 + (void)ADVSinitMedia:(NSString *)mediaId delegate:(id<ADVSExceptionDelegate>)delegate;
+
+/**
+ Sets the given mediaId from administrator, parameters and delegate.
+ 
+ @param mediaId The number which was given by administrator.
+ @param params The dictionary which is used by sdk.
+ @param delegate The delegate tells an exception.
+ */
 
 + (void)ADVSinitMedia:(NSString *)mediaId params:(NSDictionary*)params delegate:(id<ADVSExceptionDelegate>)delegate;
 
