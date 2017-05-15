@@ -42,7 +42,7 @@
 @property(nonatomic, weak) id<ADVSInstreamAdLoaderDelegate> delegate;
 
 /**
- This delegate tells an exception.
+ This exceptionDelegate tells an exception.
  
  @see ADVSExceptionDelegate.h
  */

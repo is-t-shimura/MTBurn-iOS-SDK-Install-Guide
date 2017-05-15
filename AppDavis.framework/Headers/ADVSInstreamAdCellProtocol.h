@@ -26,6 +26,12 @@
 
 @protocol ADVSInstreamAdCellProtocol <ADVSInstreamAdCellInternalProtocol>
 
+/**
+ This exceptionDelegate tells an exception.
+ 
+ @see ADVSExceptionDelegate.h
+ */
+
 @property(nonatomic, weak) id<ADVSExceptionDelegate> exceptionDelegate;
 
 /**
