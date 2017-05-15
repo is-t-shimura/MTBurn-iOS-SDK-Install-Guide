@@ -8,9 +8,9 @@
 
 import UIKit
 
-class ADVSCustomTableViewController: UITableViewController, ADVSInstreamAdLoaderDelegate {
+class ADVSCustomTableViewController: UITableViewController {
     
-    var contents:[AnyObject] = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    var contents:[AnyObject] = ["Sunday" as AnyObject, "Monday" as AnyObject, "Tuesday" as AnyObject, "Wednesday" as AnyObject, "Thursday" as AnyObject, "Friday" as AnyObject, "Saturday" as AnyObject]
     
     let adSpotId = "NDQ0OjMx"
     let adCount:UInt = 2
@@ -24,7 +24,7 @@ class ADVSCustomTableViewController: UITableViewController, ADVSInstreamAdLoader
         
         // Load HIKE advertisements
         instreamAdLoader.delegate = self
-        instreamAdLoader.ADVSloadAdWithReturn(adSpotId, adCount: adCount, positions: positions)
+        instreamAdLoader.advSloadAd(withReturn: adSpotId, adCount: adCount, positions: positions)
     }
     
     override func didReceiveMemoryWarning() {
@@ -32,40 +32,40 @@ class ADVSCustomTableViewController: UITableViewController, ADVSInstreamAdLoader
     }
     
     // MARK: - tableView delegate methods
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return contents.count
     }
     
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: UITableViewCell
         
         if isAdCellAt(indexPath) {
-            cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "AdCell")
+            cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "AdCell")
             let item:ADVSInstreamInfoModel = contents[indexPath.row] as! ADVSInstreamInfoModel
             cell.textLabel?.text = item.title
-            cell.textLabel?.textColor = UIColor.blueColor()
+            cell.textLabel?.textColor = UIColor.blue
             cell.detailTextLabel?.text = item.content + " [\(item.displayedAdvertiser)提供]"
             cell.detailTextLabel?.sizeToFit()
             cell.detailTextLabel?.numberOfLines = 0
             
-            instreamAdLoader.ADVSmeasureImp(item)
+            instreamAdLoader.advSmeasureImp(item)
         } else {
-            cell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
-            cell.textLabel?.text = String(contents[indexPath.row])
+            cell = UITableViewCell(style: UITableViewCellStyle.subtitle, reuseIdentifier: "Cell")
+            cell.textLabel?.text = String(describing: contents[indexPath.row])
         }
         return cell
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if !isAdCellAt(indexPath) {
             return
         }
         let item:ADVSInstreamInfoProtocol = contents[indexPath.row] as! ADVSInstreamInfoProtocol
-        instreamAdLoader.ADVSsendClickEvent(item)
+        instreamAdLoader.advSsendClickEvent(item)
     }
     
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         if !isAdCellAt(indexPath) {
             return UITableViewAutomaticDimension
         }
@@ -73,7 +73,7 @@ class ADVSCustomTableViewController: UITableViewController, ADVSInstreamAdLoader
         return 74
     }
     
-    func isAdCellAt(indexPath:NSIndexPath) -> Bool {
+    func isAdCellAt(_ indexPath:IndexPath) -> Bool {
         let item:AnyObject = contents[indexPath.row]
         
         if item is ADVSInstreamInfoProtocol {
@@ -81,13 +81,15 @@ class ADVSCustomTableViewController: UITableViewController, ADVSInstreamAdLoader
         }
         return false
     }
-    
-    // MARK: - HIKE delegate methods
-    func ADVSinstreamAdLoaderDidStartLoadingAd(instreamAdLoader: ADVSInstreamAdLoader!) {
+}
+
+extension ADVSCustomTableViewController: ADVSInstreamAdLoaderDelegate {
+    func advSinstreamAdLoaderDidStartLoadingAd(_ instreamAdLoader: ADVSInstreamAdLoader!) {
         NSLog("ADVSinstreamAdLoaderDidStartLoadingAd")
     }
     
-    func ADVSinstreamAdLoaderDidFinishLoadingAdWithReturn(instreamAdLoader: ADVSInstreamAdLoader!, instreamInfoModels: [AnyObject]!) {
+    @objc(ADVSinstreamAdLoaderDidFinishLoadingAdWithReturn:instreamInfoModels:)
+    func advSinstreamAdLoaderDidFinishLoadingAd(withReturn instreamAdLoader: ADVSInstreamAdLoader!, instreamInfoModels: [Any]!) {
         NSLog("ADVSinstreamAdLoaderDidFinishLoadingAdWithReturn:instreamInfoModels adCount=%d", instreamInfoModels.count);
         
         if instreamInfoModels.count < 1 {
@@ -96,30 +98,32 @@ class ADVSCustomTableViewController: UITableViewController, ADVSInstreamAdLoader
         }
         
         for info:ADVSInstreamInfoProtocol in instreamInfoModels as! [ADVSInstreamInfoModel] {
-            contents.insert(info, atIndex: info.position.integerValue)
+            contents.insert(info, at: info.position.intValue)
         }
         
         tableView.reloadData()
     }
     
-    func ADVSinstreamAdLoaderDidFinishSendingAdImp() {
+    func advSinstreamAdLoaderDidFinishSendingAdImp() {
         NSLog("ADVSinstreamAdLoaderDidFinishSendingImp")
     }
     
-    func ADVSinstreamAdLoaderDidFinishSendingAdClick() {
+    func advSinstreamAdLoaderDidFinishSendingAdClick() {
         NSLog("ADVSinstreamAdLoaderDidFinishSendingAdClick")
     }
     
-    func ADVSinstreamAdLoader(instreamAdLoader: ADVSInstreamAdLoader!, didFailToLoadAdWithError error: NSError!) {
-        NSLog("ADVSinstreamAdLoader:didFailToLoadAdWithError:%@", error)
+    @objc(ADVSinstreamAdLoader:didFailToLoadAdWithError:)
+    func advSinstreamAdLoader(_ instreamAdLoader: ADVSInstreamAdLoader!, didFailToLoadAdWithError error: Error!) {
+        NSLog("ADVSinstreamAdLoader:didFailToLoadAdWithError:%@", error as NSError)
     }
     
-    func ADVSinstreamAdLoader(instreamAdLoader: ADVSInstreamAdLoader!, didFailToSendImpWithError error: NSError!) {
-        NSLog("ADVSinstreamAdLoader:didFailToSendImpWithError:%@", error)
+    @objc(ADVSinstreamAdLoader:didFailToSendImpWithError:)
+    func advSinstreamAdLoader(_ instreamAdLoader: ADVSInstreamAdLoader!, didFailToSendImpWithError error: Error!) {
+        NSLog("ADVSinstreamAdLoader:didFailToSendImpWithError:%@", error as NSError)
     }
     
-    func ADVSinstreamAdLoader(instreamAdLoader: ADVSInstreamAdLoader!, didFailToSendClickWithError error: NSError!) {
-        NSLog("ADVSinstreamAdLoader:didFailToSendClickWithError:%@", error)
+    @objc(ADVSinstreamAdLoader:didFailToSendClickWithError:)
+    func advSinstreamAdLoader(_ instreamAdLoader: ADVSInstreamAdLoader!, didFailToSendClickWithError error: Error!) {
+        NSLog("ADVSinstreamAdLoader:didFailToSendClickWithError:%@", error as NSError)
     }
 }
-
